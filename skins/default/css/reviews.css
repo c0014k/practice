@@ -1,0 +1,43 @@
+.work-zone-reviews{
+	width:990px;
+	margin:auto;
+	padding: 20px 0 0 0;
+}
+.rev-form {
+	margin-bottom:20px;
+}
+.reviews {
+	background:aliceblue;
+	margin:auto;
+	width:85%;
+	padding:20px 20px 20px 20px;
+	font-size:18px;
+	font-style:italic;
+	word-wrap:break-word;
+}
+.rev-text{
+	font-size:22px;
+	font-weight:bold;
+}
+.user-review {
+	display:inline-block;
+	margin: 10px 10px 0px 10px;
+}
+.user-button {
+	width: auto;
+	height: 25px;
+	color: #050990;
+	font-size:70%;
+}
+.adm-review {
+	display: inline-block;
+	margin: 10px 10px 0 380px;
+}
+.adm-review input {
+	color: #ff0000;
+	text-decoration:none;
+	font-style:normal;
+}
+.adm-review input:hover{
+	font-style:italic;
+}

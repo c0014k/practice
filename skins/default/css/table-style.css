@@ -1,0 +1,23 @@
+.bg-yellow {
+	background-color:#ffff00;
+	border:1px solid black;
+}
+
+.bg-green {
+	background-color:#008000;
+	border:1px solid black;
+}
+
+.bg-red {
+	background-color:#ff0000;
+	border:1px solid black;
+}
+
+.my-table {
+	border:1px solid black;
+	border-collapse:collapse;
+}
+
+.my-td {
+	border:1px solid black;
+}

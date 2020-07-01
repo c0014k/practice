@@ -1,0 +1,987 @@
+/*--верхний бар-------------------------------------------------------------------*/
+.top-bar-background {
+	height:40px;
+	background-color:#18469d;
+}
+.work-zone{
+	width:80%;
+	margin:auto;
+	padding: 40px 0 20px 0;
+}
+.container-top-bar {
+	width: 75%;
+	margin: auto;
+}
+
+.left-side {
+	float: left;
+	width: 65%;
+	padding-top: 12px;
+}
+
+.top-bar {
+	color: #ffffff;
+	font-size: 18px;
+	font-family: "Quicksand", sans-serif;
+	float: left;
+	margin-left: 5px;
+	text-decoration:none;
+}
+
+.sp-phone {
+	width: 18px;
+	height: 17px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -3px -9px;
+	float: left;
+}
+
+.sp-mail {
+	width: 20px;
+	height: 16px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -30px -10px;
+	margin-left: 20px;
+	float: left;
+}
+
+.right-side {
+	float:right;
+	width: 35%;
+	padding-top: 7px;
+	text-align:right;
+}
+
+.sp-fb {
+	width: 13px;
+	height: 22px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -58px -4px;
+	margin-right: 25px;
+	display: inline-block;
+}
+
+.sp-twit {
+	width: 19px;
+	height: 22px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -5px -38px;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.sp-google {
+	width: 28px;
+	height: 19px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -29px -41px;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.sp-pint {
+	width: 18px;
+	height: 22px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -60px -38px;
+	display: inline-block;
+ }
+
+/*---меню-------------------------------------------------------------------------*/
+.container-nav {
+	width:75%;
+	margin:auto;
+}
+
+.logo {
+	float: left;
+	width: 12%;
+	box-sizing: border-box;
+	padding-top: 40px;
+}
+
+.menu {
+	text-align: right;
+	font-weight: 700;
+	font-size: 19px;
+	padding-top: 50px;
+	float: left;
+	width: 75%;
+	box-sizing: border-box;
+}
+
+.login {
+	float: left;
+	width: 13%;
+	box-sizing: border-box;
+	padding: 35px 0 0 23px;
+}
+
+.pointer {
+	cursor:pointer;
+}
+
+.menu > div {
+	display: inline-block;
+	position:relative;
+}
+
+.menu a {
+	text-decoration: none;
+	color: #3B566E;
+	margin-left: 25px;
+	font-family: "Quicksand", sans-serif;
+}
+
+.sp-login {
+	width: 175px;
+	height: 50px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -3px -212px;
+	display: inline-block;
+}
+
+.sp-login:hover {
+	background-position: -3px -133px;
+}
+
+.logout {
+	width: 13%;
+	box-sizing: border-box;
+	margin: -25px -240px 0 100px;
+}
+
+.sp-logout {
+	width: 110px;
+	height: 42px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -676px -291px;
+	display: inline-block;
+}
+
+.sp-logout:hover {
+	background-position: -536px -291px;
+}
+
+/*--поиск-------------------------------------------------------------------------*/
+.banner-1 {
+	background-image: url(/skins/default/img/banner-1.jpg);
+	height: 1078px;
+	margin-top: 20px;
+	font-family: "Quicksand", sans-serif;
+}
+
+.sp-spear2-left {
+	width: 37px;
+	height: 36px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -174px -69px;
+	display: inline-block;
+	margin-top: 500px;
+	margin-left: 40px;
+}
+
+.sp-spear2-right {
+	width: 37px;
+	height: 36px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -174px -12px;
+	display: inline-block;
+	margin-top: 500px;
+	margin-left: 1740px;
+}
+
+.search-menu {
+	background-color:rgba(237, 232, 239, 0.9);
+	border-radius:10px;
+	width: 1200px;
+	height: 135px;
+	margin: auto;
+}
+
+.press-search-text {
+	color: darkgray;
+	font-family: "Quicksand", sans-serif;
+	margin: 15px 0 0 25px;
+	float: left;
+}
+
+.search-1 {
+	width: 385px;
+	height: 50px;
+	background-color: whitesmoke;
+	margin: 20px 0 0 25px;
+	border-radius: 10px;
+	float: left;
+}
+
+.search-2 {
+	width: 250px;
+	height: 50px;
+	background-color: whitesmoke;
+	margin: 20px 0 0 20px;
+	border-radius: 10px;
+	float: left;
+}
+
+.search-3 {
+	width: 250px;
+	height: 50px;
+	background-color: whitesmoke;
+	margin: 20px 0 0 20px;
+	border-radius: 10px;
+	float: left;
+}
+
+.search-4 {
+	width: 150px;
+	height: 50px;
+	background-color: whitesmoke;
+	margin: 20px 0 0 30px;
+	border-radius: 10px;
+	float: left;
+}
+
+.more-options {
+	color: #3B566E;
+	margin: 10px 0 0 95px;
+	width: 90px;
+	text-decoration: underline;
+	float: left;
+
+}
+
+.more-options-spear {
+	width: 7px;
+	height: 11px;
+	margin: 15px -8px 0 0;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -132px -68px;
+	float:left;
+}
+
+.search-1 a {
+	width: 370px;
+	height: 30px;
+	color: darkgray;
+	margin: 16px 0 0 16px;
+	float: left;
+	cursor: text;
+	text-decoration: none;
+}
+
+.listing-type {
+	color: #3B566E;
+	margin: 16px 0 0 16px;
+	float:left;
+}
+
+.listing-spear {
+	width: 16px;
+	height: 12px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -102px -38px;
+	display: inline-block;
+	margin: 19px 0 0 93px;
+}
+
+.select-city {
+	color: #3B566E;
+	margin: 16px 0 0 16px;
+	float:left;
+}
+
+.select-city-spear {
+	width: 16px;
+	height: 12px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -102px -38px;
+	display: inline-block;
+	margin: 19px 0 0 126px;
+}
+
+.search-button {
+	width: 191px;
+	height: 52px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -229px -21px;
+	display: inline-block;
+	border-radius: 6px;
+}
+
+.search-button:hover {
+	background-position: -229px -98px;
+}
+
+/*--резиденции--------------------------------------------------------------------*/
+.header-section-property {
+	color: #3B566E;
+	text-align:center;
+	margin-top:60px;
+	font-family: "Quicksand", sans-serif;
+}
+
+.header-section-property h2 {
+	font-weight:normal;
+	font-size: 35px;
+}
+
+.header-section-property span {
+	font-size: 20px;
+}
+
+.zoom {
+	width: 454px;
+	height: 286px;
+	overflow: hidden;
+}
+
+.zoom img:hover {
+	width: 110%;
+	height: 110%;
+	margin: -10px 0 0 -15px;
+	transition: .3s;
+}
+
+.zoom img:not(:hover){
+	width: 100%;
+	height: 100%;
+	margin: 0 0 0 0;
+	transition: .3s;
+}
+
+.property {
+	text-align: center;
+	width: 75%;
+	height: 600px;
+	margin: auto;
+	padding-top: 10px;
+}
+
+.spears-property {
+	text-align: right;
+	padding: 0 17px 10px 0;
+}
+
+.sp-spear3-left {
+	width: 37px;
+	height: 36px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -174px -69px;
+	display: inline-block;
+	padding-right: 10px;
+}
+
+.sp-spear3-right {
+	width:37px;
+	height:36px;
+	background-image:url(/skins/default/img/homer-sprites.jpg);
+	background-position:-174px -12px;
+	display:inline-block;
+}
+
+.prop-1 {
+	margin-right: 10px;
+	display: inline-block;
+	outline: 1px solid whitesmoke;
+}
+
+.descrip {
+	color: #3B566E;
+	text-align:left;
+	margin-left:20px;
+	font-family: "Quicksand", sans-serif;
+}
+
+.geotag-img {
+	width: 11px;
+	height: 15px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -131px -30px;
+	display: inline-block;
+}
+
+.descrip h3 {
+	font-weight:normal;
+	font-size: 24px;
+}
+
+.prop-2 {
+	margin-right: 10px;
+	display: inline-block;
+	outline: 1px solid whitesmoke;
+}
+
+.prop-3 {
+	display:inline-block;
+	outline: 1px solid whitesmoke;
+}
+
+.container-atribute {
+	border-top: 1px solid gainsboro;
+	width: max-content;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+.sp-pror-atribute-1 {
+	width: 50px;
+	height: 50px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -10px -275px;
+	display: inline-block;
+	margin-top: 15px;
+}
+
+.sp-pror-atribute-2 {
+	width: 130px;
+	height: 26px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -7px -343px;
+	display: inline-block;
+	margin-left: 210px;
+}
+
+.descrip ul {
+	margin-left: -10px;
+	padding-inline-start: 0;
+}
+
+.descrip ul li {
+	display: inline-block;
+	font-size: 14px;
+	color: #242526;
+	line-height: 11px;
+	border-right: 1px solid #ddd;
+	padding: 0 10px 0 10px;
+}
+
+.descrip li:nth-last-child(1) {
+	border-right:none;
+}
+
+/*--локации-----------------------------------------------------------------------*/
+.places {
+	background-color:#f3f3f3;
+	margin-top:70px;
+}
+
+.header-section-places {
+	text-align: center;
+	padding-top: 40px;
+	margin-bottom: 50px;
+	color: #3B566E;
+	font-family: "Quicksand", sans-serif;
+}
+
+.header-section-places h2 {
+	font-size: 35px;
+	font-weight:normal;
+}
+
+.header-section-places span {
+	font-size: 20px;
+}
+
+.places-img {
+	width: 75%;
+	margin: auto;
+	padding-bottom: 100px;
+}
+
+.places-img span {
+	color: #ffffff;
+	font-family: "Quicksand", sans-serif;
+	text-align: left;
+	padding: 0 0 0 25px;
+	font-size: 20px;
+}
+
+.places-img img {
+	border-radius:6px;
+}
+
+.NewYork {
+	position:relative;
+	width:792px;
+	height:493px;
+	float: left;
+	margin: 25px 13px 0 25px;
+}
+
+.NewYork:hover .pop-up-1{
+	display:block;
+	transition: .3s;
+}
+
+.pop-up-1 {
+	display:none;
+	background-image: url(/skins/default/img/popup-window-black.png);
+	width: 792px;
+	height: 50px;
+	position: absolute;
+	margin: -54px 0 0 0;
+	border-radius: 6px;
+}
+
+.pop-up-1-2 {
+	background-image: url(/skins/default/img/sprites.png);
+	width: 102px;
+	height: 50px;
+	position: absolute;
+	margin: -34px 0 0 675px;
+}
+
+.Sydney {
+	position:relative;
+	width:555px;
+	height:294px;
+	float: left;
+	margin: 25px 13px 0 25px;
+}
+
+.Sydney:hover .pop-up-2{
+	display:block;
+	transition: .3s;
+}
+
+.pop-up-2 {
+	display:none;
+	background-image: url(/skins/default/img/popup-window-black.png);
+	width: 555px;
+	height: 50px;
+	position: absolute;
+	margin: -54px 0 0 0;
+	border-radius: 6px;
+}
+
+.pop-up-2-2 {
+	background-image: url(/skins/default/img/sprites.png);
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	margin: -34px 0 0 430px;
+}
+
+.Australia {
+	position:relative;
+	width: 257px;
+	height: 171px;
+	float: left;
+	margin: 25px 13px 0 25px;
+}
+
+.Australia:hover .pop-up-3{
+	display:block;
+	transition: .3s;
+}
+
+.pop-up-3 {
+	display:none;
+	background-image: url(/skins/default/img/popup-window-black.png);
+	width: 255px;
+	height: 50px;
+	position: absolute;
+	margin: -54px 0 0 0;
+	border-radius: 6px;
+}
+
+.pop-up-3-2 {
+	background-image: url(/skins/default/img/sprites.png);
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	margin: -34px 0 0 135px;
+}
+
+.Paris {
+	position: relative;
+	width: 257px;
+	height: 171px;
+	float: left;
+	margin: 25px 0 0 28px;
+}
+
+.Paris:hover .pop-up-4{
+	display:block;
+	transition: .3s;
+}
+
+.pop-up-4 {
+	display:none;
+	background-image: url(/skins/default/img/popup-window-black.png);
+	width: 256px;
+	height: 50px;
+	position: absolute;
+	margin: -54px 0 0 0;
+	border-radius: 6px;
+}
+
+.pop-up-4-2 {
+	background-image: url(/skins/default/img/sprites.png);
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	margin: -34px 0 0 135px;
+}
+/*--агенты-----------------------------------------------------------------------*/
+.header-section-agents {
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 25px;
+	color: #3B566E;
+	font-family: "Quicksand", sans-serif;
+}
+
+.header-section-agents h2 {
+	font-size: 35px;
+	font-weight:normal;
+}
+
+.header-section-agents span {
+	font-size: 20px;
+}
+
+.agents {
+	width:75%;
+	margin:auto;
+	font-family: "Quicksand", sans-serif;
+	color: #3B566E;
+}
+
+.container-agent {
+	position:relative;
+	background-color: #f3f3f3;
+	width: 320px;
+	float: left;
+	margin-left: 28px;
+}
+
+.container-agent a{
+	text-decoration:none;
+	color: #3B566E;
+}
+
+.zoom-2 {
+	width: 320px;
+	height: 278px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.zoom-2 a:hover {
+	width: 120%;
+	height: 120%;
+	margin: -10px 0 0 0;
+	transition: .3s;
+}
+
+.zoom-2 a:not(:hover){
+	width: 100%;
+	height: 100%;
+	margin: 0 0 0 0;
+	transition: .3s;
+}
+
+.sp-phone-2{
+	width: 18px;
+	height: 17px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -99px -69px;
+	float: left;
+	margin: 0 15px 20px 10px;
+}
+
+.name {
+	width: fit-content;
+	font-size: 22px;
+	border-bottom: 2px solid #050990;
+	padding: 0 0 14px 0;
+	margin: 0 0 0 10px;
+}
+
+.spec {
+	color: #000000;
+	margin: 30px 0 15px 10px;
+}
+
+.agent-1 {
+	width: 320px;
+	height: 278px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -430px -844px;
+	float: left;
+}
+.agent-view {
+	background-position: -225px -1008px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 135px;
+	height: 42px;
+	position: absolute;
+	margin: -185px 0 0 90px;
+	border-radius: 4px;
+}
+.pop-up-agent-1 {
+	background-image: url(/skins/default/img/popup-window-blue.png);
+	width: 319px;
+	height: 50px;
+	position: absolute;
+	margin: -71px 0 0 1px;
+}
+.pop-up-agent-1-2 {
+	background-position: -135px;
+	background-image: url(/skins/default/img/sprites.png);
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	margin: -71px 0 0 212px;
+}
+.agent-text-1 {
+	color: #ffffff;
+	font-family: "Quicksand", sans-serif;
+	text-align: left;
+	font-size: 20px;
+	position: absolute;
+	margin: -60px 0 0 10px;
+
+}
+.effect {
+	position:absolute;
+	display:none;
+}
+.container-agent:hover .effect {
+	display:block;
+}
+
+.agent-2 {
+	width: 320px;
+	height: 278px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -787px -844px;
+	float: left;
+}
+
+.agent-3 {
+	width: 320px;
+	height: 278px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -1143px -844px;
+	float: left;
+}
+
+.agent-4 {
+	width: 320px;
+	height: 278px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -1499px -844px;
+	float: left;
+}
+/*--баннер-2----------------------------------------------------------------------*/
+.banner-2 {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	height: 474px;
+	background-position: -5px -1214px;
+	margin-top: 100px;
+}
+/*--нижнее меню-------------------------------------------------------------------*/
+.background-bottom-bar {
+	background-color:#f3f3f3;
+}
+
+.container-bottom-bar {
+	text-align: center;
+	width: 75%;
+	margin: auto;
+	padding-top:60px;
+	color: #3B566E;
+	font-family: "Quicksand", sans-serif;
+	font-size:14px;
+	line-height:2;
+}
+
+.container-bottom-bar h3 {
+	font-size:20px;
+	font-weight:100;
+}
+
+.container-bottom-bar span {
+	font-size:18px;
+}
+
+.homer-bottom-bar {
+	width:40%;
+	float:left;
+	text-align:left;
+	line-height:2;
+	font-size: 18px;
+	box-sizing: border-box;
+}
+
+.latest-property-bottom-bar {
+	width: 34%;
+	float: left;
+	text-align: left;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.latest-property-bottom-bar span {
+	padding-left: 10px;
+}
+
+.price {
+	font-weight:bold;
+}
+
+.latest-property-1 {
+	padding-bottom: 20px;
+}
+
+.latest-property-2 {
+	padding-top: 15px;
+	border-top: 1px solid gainsboro;
+}
+
+.villa-1 {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 90px;
+	height: 75px;
+	background-position: -189px -225px;
+	float: left;
+}
+
+.villa-2 {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 90px;
+	height: 75px;
+	background-position: -301px -226px;
+	float: left;
+}
+
+.contact-us-bottom-bar {
+	width: 22%;
+	float: left;
+	text-align: left;
+	margin-left: 40px;
+	box-sizing: border-box;
+}
+
+.contact-us-bottom-bar-socweb-fb {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 18px;
+	height: 18px;
+	background-position: -1px -69px;
+	display:inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.contact-us-bottom-bar-socweb-tw {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 18px;
+	height: 18px;
+	background-position: -20px -69px;
+	display:inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.contact-us-bottom-bar-socweb-in {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 18px;
+	height: 18px;
+	background-position: -40px -69px;
+	display:inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.contact-us-bottom-bar-socweb-google {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 18px;
+	height: 18px;
+	background-position: -58px -69px;
+	display:inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.contact-us-bottom-bar-socweb-afk {
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	width: 18px;
+	height: 18px;
+	background-position: -78px -69px;
+	display:inline-block;
+	margin-top: 10px;
+}
+
+/*--футер-------------------------------------------------------------------------*/
+.footer-homer {
+	padding-top: 30px;
+	padding-bottom:40px;
+	background-color:#f3f3f3;
+}
+
+.text-line {
+	font-size: 18px;
+	font-family:"Quicksand", sans-serif;
+	color: #3B566E;
+	text-align: center;
+	width: 75%;
+	border-top: 1px solid gainsboro;
+	margin: auto;
+	padding-top: 40px;
+}
+.table-user {
+	font-size: 18px;
+	font-family:"Quicksand", sans-serif;
+	margin-top: 40px;
+}
+.prod-info {
+	float: left;
+	font-size: 21px;
+	width: 45%;
+}
+.prod-img {
+	display: inline-block;
+	width: 55%;
+	text-align: center;
+	height:120px;
+}
+.prod-parameter {
+	font-weight: 700;
+}
+.prod-podrobnee {
+	margin:5px 5px 5px 5px;
+	font-size:21px;
+}
+.prod-podrobnee a {
+	text-decoration:none;
+}
+.form-delimiter {
+	display:inline-block;
+	width:65%;
+}
+.form-delimiter-2 {
+	display:inline-block;
+}
+.errors {
+	color:#ff0000;
+	font-size: 21px;
+	font-family:"Quicksand", sans-serif;
+}
+/* Clearfix */
+/* Первый вариант */
+.clearfix:after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+/* Второй вариант */
+.clearfix2:before,.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix2:after {
+	clear:both;
+}

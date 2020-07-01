@@ -1,0 +1,166 @@
+$array = array (
+	'<b>10test',
+	'test1</b>',
+	' //1.1   ',
+	array (
+		'x'=>'      /*2.2   ',
+		'y'=>'     3,6   '),
+		array (
+			'z'=>'     0     ',
+			'w'=>'      <em> 3f3   ',
+			'o'=>'       3.79  </em> ',
+			'p'=>'      <u> 4,56  </u> ',
+			'r'=>'       <s>4,56</s>>   '),
+	);
+
+$array = sqlRES($array);
+wtf($array);
+
+q("
+    INSERT INTO `users` SET
+    `login` = '<b',
+    `password` = ''',
+    `about` = '>ha</b>'
+");
+
+class paginator {
+	static $howpages = 9;
+	static $shownumber = true;
+	static $shownext = true;
+	static function  showPaginator(){
+		self::$howpages;
+		if(self::$howpages == 5){
+			echo '4TO-TO CBOE';
+		}
+		return '1,2,3,4';
+	}
+}
+
+echo paginator::showPaginator();
+echo '<hr>';
+paginator::$howpages = 5;
+echo paginator::showPaginator();
+echo '<hr>';
+class Illustrator {
+	public $radius = 10;
+
+	public function makeGraphic(){
+		echo $this->radius;
+	}
+}
+$ill1 = new Illustrator;
+$ill12 = new Illustrator;
+
+$ill1->radius = 5;
+$ill12->radius = 37;
+
+
+echo $ill1->radius;
+echo '<br>*****************************************<br>';
+echo $ill12->radius;
+
+class Mail {
+	static $subject = 'use defaults';
+	static $from = 'coolakster@gmail.com';
+	static $to = 'coolakster@gmail.com';
+	static $text = 'Template text';
+	static $headers = '';
+
+	static function testMail(){
+		if(mail(self::$to,'English words','Egnlish words')){
+			echo 'Письсмо отправлено';
+		} else {
+			echo 'Письмо не отправилось';
+		}
+		exit();
+	}
+	static function send(){
+		 return mail(self::$to,self::$subject,self::$text, self::$headers);
+	}
+}
+
+
+
+if (isset($_SESSION['regok'])){
+	echo $_SESSION['regok'];
+	unset($_SESSION['regok']);
+}
+_________________________________________________________________________________________________
+<?php
+$errors = [];
+if (isset($_POST['name'],$_POST['email'],$_POST['text'])) {
+	if(empty($_POST['name'])) {
+		$errors['name'] = 'Вы не указали имя';
+	} elseif(empty($_POST['email']) || !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
+		$errors['email'] = 'Введите email';
+	} elseif(empty($_POST['text'])) {
+		$errors['text'] = 'Оставьте отзыв';
+	} else {
+		q("
+			INSERT INTO `reviews` SET
+			`name` 	= '".es($_POST['name'])."',
+			`age` 	= '".intAll($_POST['age'])."',
+			`email` = '".es($_POST['email'])."',
+			`text` 	= '".es($_POST['text'])."'
+			")or exit('ОШИБКА:'.mysqli_error($link));
+		$_SESSION['regok'] = 'Ваш отзыв добавлен!';
+		header("Location:/index.php?module=reviews");
+		exit();
+	}
+}
+$reviews = q("
+	SELECT * FROM `reviews` 
+	ORDER BY `id` DESC
+	") or exit(mysqli_error($link));
+____________________________________________________________________________________________________
+<div class="work-zone">
+<?php
+if (isset($_SESSION['regok'])){
+	 echo $_SESSION['regok'];
+	unset($_SESSION['regok']);
+} else { ?>
+<div>Оставьте отзыв</div>
+<form action="/index.php?module=reviews" method="post">
+	<table>
+		<tr>
+			<td>Имя*:</td>
+			<td><input type="text" name="name" value="<?php echo hc($_POST['name'] ?? ''); ?>"></td>
+			<td><?php echo $errors['name'] ?? ''; ?></td>
+		</tr>
+		<tr>
+			<td>Возраст:</td>
+			<td><input type="text" name="age"></td>
+		</tr>
+		<tr>
+			<td>EMAIL*:</td>
+			<td><input type="email" name="email" value="<?php echo hc($_POST['email'] ?? ''); ?>"></td>
+			<td><?php echo $errors['email'] ?? ''; ?></td>
+		</tr>
+		<tr>
+			<td>Отзыв*:</td>
+			<td><textarea rows="10" cols="50" name="text"></textarea></td>
+			<td><?php echo $errors['text'] ?? ''; ?></td>
+		</tr>
+	</table>
+	<div><input type="submit"></div>
+</form>
+<div>* - обязательные для заполнения поля</div>
+<?php } ?>
+<div class="reviews">
+<?php
+if (mysqli_num_rows($reviews)) {
+while ($row = mysqli_fetch_assoc($reviews)){;
+	echo hc($row['name']);
+		if ($row['age']==1){
+			echo ', '.intAll($row['age']).' year';
+		} else {
+			echo ', '.intAll($row['age']).' years';
+		}
+		?><div class="rev-text"><?php echo nl2br(hc($row['text'])).'</div>';
+	}
+}	else {
+		echo 'Пока нет отзывов';
+	}
+?>
+</div>
+

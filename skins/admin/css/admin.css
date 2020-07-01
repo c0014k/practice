@@ -1,0 +1,154 @@
+.work-zone-admin {
+	width: 970px;
+	margin: auto;
+	padding: 40px 0 80px 0;
+	font-size: 18px;
+	font-family:"Quicksand", sans-serif;
+}
+.menu {
+	font-size: 19px;
+	text-align:center;
+}
+.main-menu {
+	color: #3B566E;
+	margin-left: 45px;
+	font-family: "Quicksand", sans-serif;
+}
+.menu > div {
+	display: inline-block;
+	position:relative;
+	line-height: 10px;
+	width: 125px;
+}
+.main-menu:hover {
+	font-family: cursive;
+}
+.menu > div:hover .drop-menu {
+	display:block;
+}
+.drop-menu {
+	display: none;
+	background-color: #f3f3f3;
+	position: absolute;
+	text-align: left;
+	padding: 5px 15px 30px 15px;
+	margin: 5px 0 0 0;
+	width: 100px;
+}
+.link {
+	padding-top:30px;
+}
+.pointer {
+	cursor:pointer;
+}
+.main-menu a:hover{
+	color:#3a8ece;
+}
+.menu a {
+	text-decoration: none;
+	color: #3B566E;
+	font-family: "Quicksand", sans-serif;
+}
+.drop-menu a {
+	text-decoration: none;
+	color: #3B566E;
+	font-family: cursive;
+}
+.sp-cross {
+	width: 18px;
+	height: 18px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -103px -12px;
+	display: inline-block;
+}
+.sp-spear1 {
+	width: 13px;
+	height: 16px;
+	background-image: url(/skins/default/img/homer-sprites.jpg);
+	background-position: -131px -44px;
+	display: inline-block;
+}
+.work-zone{
+	width:80%;
+	margin:auto;
+	padding: 40px 0 20px 0;
+}
+.footer-admin {
+	margin-top: 80px;
+	padding-top: 30px;
+	padding-bottom:40px;
+	background-color:#f3f3f3;
+}
+.text-line {
+	font-size: 18px;
+	font-family:"Quicksand", sans-serif;
+	color: #3B566E;
+	text-align: center;
+	width: 75%;
+	border-top: 1px solid gainsboro;
+	margin: auto;
+	padding-top: 40px;
+}
+.rev-edit {
+	width: 990px;
+	margin: auto;
+	padding: 20px 0 20px 0;
+}
+.table-admin {
+	font-size: 18px;
+	font-family:"Quicksand", sans-serif;
+	margin-top: 40px;
+}
+.prod-parameter {
+	font-size: 18px;
+	font-weight: 700;
+}
+.prod-podrobnee {
+	margin: 0 0 0 165px;
+	font-size:21px;
+}
+.prod-podrobnee a {
+	text-decoration:none;
+}
+.prod-edit {
+	margin: 15px 0 15px 0;
+}
+.doc-head {
+	font-size: 24px;
+	font-family:"Quicksand", sans-serif;
+	text-align:center;
+}
+.doc-text {
+	font-size: 21px;
+	font-family:"Quicksand", sans-serif;
+}
+.back-to-all-users {
+	display: inline-block;
+	margin-left: 757px;
+}
+.back-to-all-users a {
+	text-decoration:none;
+}
+.form-delimiter {
+	display:inline-block;
+	width:65%;
+}
+.form-delimiter-2 {
+	display:inline-block;
+}
+.prod-info {
+	float: left;
+	font-size: 21px;
+	width: 45%;
+}
+.prod-img {
+	display: inline-block;
+	width: 55%;
+	text-align: center;
+	height:120px;
+}
+.errors {
+	color:#ff0000;
+	font-size: 21px;
+	font-family:"Quicksand", sans-serif;
+}

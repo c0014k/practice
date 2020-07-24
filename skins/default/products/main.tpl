@@ -1,6 +1,16 @@
 <div class="work-zone">
+<?php if(!isset($_GET['id'])){ ?>
+	<form action="" method="post">
+		<?php
+		while($row2 = $res->fetch_assoc()){?>
+			<label><input type="checkbox" name="cat_ids[]" value="<?php echo $row2['id'];?>"><span class="prod-parameter"> <?php echo $row2['name'];?> </span></label>
+		<?php }
+		$res->close();?>
+		<input type="submit" name="filter" value="ВЫБРАТЬ">
+	</form>
+	<?php
+}
 
-<?php
 while($row = mysqli_fetch_assoc($products)) { ?>
 	<hr>
 	<div class="prod-info">
@@ -19,7 +29,6 @@ while($row = mysqli_fetch_assoc($products)) { ?>
 		<div class="prod-img">
 			<img src="<?php echo '/uploaded/300x400/'.$row['img']?>">
 		</div>
-		<br><a href="/products">Вернуться к общему списку</a>
 	<?php } else {?>
 			<div class="prod-img">
 				<img src="<?php echo '/uploaded/100x100/'.$row['img']?>">
@@ -28,3 +37,6 @@ while($row = mysqli_fetch_assoc($products)) { ?>
 	<?php }
 } ?>
 </div>
+<?php if(isset($_GET['id'])) {?>
+	<div class="work-zone"><a href="/products">ВЕРНУТЬСЯ К ОБЩЕМУ СПИСКУ ТОВАРОВ</a></div>
+<?php }?>

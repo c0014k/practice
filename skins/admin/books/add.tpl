@@ -1,38 +1,25 @@
 <div class="work-zone">
-<form action="" method="post" enctype="multipart/form-data">
-	<div class="form-delimiter-2">
-	<span class="prod-parameter">Добавить новую категорию товара:</span><br>
-	<input type="text" name="new_cat">
-	<input type="submit" name="add_cat" value="Добавить категорию">
-	</div>
-</form>
+<?php
+if(isset($info)) {
+	echo $info;
+} ?>
+<div class="form-delimiter-2">
+	<form action="" method="post" enctype="multipart/form-data">
+		<span class="prod-parameter">Добавить нового автора:</span><br>
+		Има автора:<br>
+		<input type="text" name="new_author"><br>
+		Про автора:<br>
+		<textarea name="about_auth" cols="28" rows="2"></textarea><br>
+		<input type="submit" name="add_author" value="Добавить автора">
+	</form>
+</div>
 
 <form action="" method="post" enctype="multipart/form-data">
 <div class="form-delimiter-2">
-<span class="prod-parameter">Добавить новый товар:</span><br>
+<span class="prod-parameter">Добавить новую книгу:</span><br>
 <table class="table-admin">
 <tr>
-	<td>Категория товаров</td>
-	<td>
-	<select name="category">
-	<?php if(isset($_POST['category'])) {?>
-		<option selected><?php echo hc($_POST['category']);
-			while($row = $res->fetch_assoc()){
-				echo '<option>'.$row['name'].'</option>';
-			}?></option>
-		<?php } else {?>
-		<option selected>Выберете категорию товаров</option>
-		<?php
-		while($row = $res->fetch_assoc()){
-			echo '<option>'.$row['name'].'</option>';
-		}
-	}
-	$res->close();?>
-	</select>
-	</td>
-</tr>
-<tr>
-	<td>Код товара</td>
+	<td>Код</td>
 	<td>
 	<?php if(!empty($_POST['code'])) {
 		$code = hc($_POST['code']);?>
@@ -43,7 +30,7 @@
 	</td>
 </tr>
 <tr>
-	<td>Наличие товара</td>
+	<td>Наличие</td>
 	<td>
 	<?php if(isset($_POST['availability'])) {
 	if($_POST['availability'] == true) {?>
@@ -60,7 +47,7 @@
 	</td>
 </tr>
 <tr>
-	<td>Название товара</td>
+	<td>Название</td>
 	<td>
 	<?php if(!empty($_POST['name'])) {
 		$name = hc($_POST['name']);?>
@@ -71,7 +58,7 @@
 	</td>
 </tr>
 <tr>
-	<td>Описание товара</td>
+	<td>О книге</td>
 	<td>
 	<?php if(!empty($_POST['description'])) {
 		$description = hc($_POST['description']);?>
@@ -82,7 +69,7 @@
 	</td>
 </tr>
 <tr>
-	<td>Цена товара</td>
+	<td>Цена</td>
 	<td>
 	<?php if(!empty($_POST['price'])) {
 		$price = hc($_POST['price']);?>
@@ -93,10 +80,20 @@
 	</td>
 </tr>
 </table>
+</div>
+<div class="form-delimiter-2">
+<select multiple size="10" name="authors[]">
+<option selected>Выберете автора (авторов)</option>
+<?php
+while($row = $res->fetch_assoc()){
+	echo '<option>'.$row['name'].'</option>';
+}
+$res->close();?>
+</select>
 <br>Загрузить изображение книги:<br>
 <input type="file" name="file" accept="image/jpeg,image/png,image/gif">
-<?php if (isset($errors['photo'])){echo '<span class="errors">'.$errors['photo'].'</span>';} ?>
-<input type="submit" name="add" value="Добавить товар">
+	<?php if (isset($errors['photo'])){echo '<span class="errors">'.$errors['photo'].'</span>';} ?>
+<input type="submit" name="add" value="Добавить книгу">
 </div>
 </form>
 </div>

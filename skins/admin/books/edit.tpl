@@ -4,23 +4,11 @@
 <table class="table-admin">
 
 <tr>
-	<td>Категория товаров</td>
-	<td><select name="category">
-	<option selected><?php if(isset($_POST['category'])) {echo hc($_POST['category']);} else {echo hc($row['category']);}?></option>
-	<?php
-	while($row2 = $res->fetch_assoc()){
-		echo '<option>'.$row2['name'].'</option>';
-	}
-	$res->close();?>
-	</select>
-	</td>
-</tr>
-<tr>
-	<td>Код товара</td>
+	<td>Код</td>
 	<td><input size="26" type="text" name="code" value="<?php if(isset($_POST['code'])) {echo hc($_POST['code']);} else {echo hc($row['code']);}?>"><td>
 </tr>
 <tr>
-	<td>Наличие товара</td>
+	<td>Наличие</td>
 	<td><?php
 	if (isset($_POST['availability'])) {
 		if($_POST['availability'] == true) {?>
@@ -41,11 +29,11 @@
 	}?></td>
 </tr>
 <tr>
-	<td>Название товара</td>
+	<td>Название</td>
 	<td><input size="26" type="text" name="name" value="<?php if(isset($_POST['name'])) {echo hc($_POST['name']);} else {echo hc($row['name']);}?>"></td>
 </tr>
 <tr>
-	<td>Описание товара</td>
+	<td>О книге</td>
 	<td><textarea name="description" cols="42" rows="21"><?php if(isset($_POST['description'])) {echo hc($_POST['description']);} else {echo hc($row['description']);}?></textarea></td>
 </tr>
 <tr>

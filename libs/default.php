@@ -7,33 +7,58 @@ function wtf($array, $stop = false) {
 	}
 }
 
-function q($query) {
-	global $link;
-	$res = mysqli_query($link,$query);
-	if($res === false) {
-		$info = debug_backtrace();
-		$error = "<b>Дата: 	 </b>".date("Y.m.d, <b>Время:</b> H:i a")."<br>\n".
-			 	 "<b>Запрос: </b>".hc($query)."<br>\n".
-				 '<b>Файл:	 </b>'.$info[0]['file']."<br>\n".
-				 '<b>Строка: </b>'.$info[0]['line']."<br>\n".
-				 '<b>Ошибка: </b>'.mysqli_error($link);
-		// Добавить отправку уведомления на почту
-		file_put_contents('./logs/mysql.log',htmlspecialchars_decode(strip_tags($error))."\n\n", FILE_APPEND);
-		echo $error;
-		exit();
-	} else {
-		return $res;
+class DB {
+	static public $mysqli = array();
+	static public $connect = array();
+
+	static public function _($key = 0) {
+		if(!isset(self::$mysqli[$key])) {
+			if(!isset(self::$connect['server']))
+				self::$connect['server'] = Core::$DB_LOCAL;
+			if(!isset(self::$connect['user']))
+				self::$connect['user'] = Core::$DB_LOGIN;
+			if(!isset(self::$connect['pass']))
+				self::$connect['pass'] = Core::$DB_PASS;
+			if(!isset(self::$connect['db']))
+				self::$connect['db'] = Core::$DB_NAME;
+
+			self::$mysqli[$key] = @new mysqli(self::$connect['server'],self::$connect['user'],self::$connect['pass'],self::$connect['db']); // WARNING
+			if (mysqli_connect_errno()) {
+				echo 'Не удалось подключиться к Базе Данных';
+				exit;
+			}
+			if(!self::$mysqli[$key]->set_charset("utf8")) {
+				echo 'Ошибка при загрузке набора символов utf8:'.self::$mysqli[$key]->error;
+				exit;
+			}
+		}
+		return self::$mysqli[$key];
+	}
+	static public function close($key = 0) {
+		self::$mysqli[$key]->close();
+		unset(self::$mysqli[$key]);
 	}
 }
 
-function es($el) {
-	global $link;
-	if (!is_array($el)) {
-		$el = mysqli_real_escape_string($link,$el);
-	} else {
-		$el = array_map('es',$el);
+function q($query,$key = 0) {
+	$res = DB::_($key)->query($query);
+	if($res === false) {
+		$info = debug_backtrace();
+		$error = "QUERY: ".$query."<br>\n".DB::_($key)->error."<br>\n".
+			"file: ".$info[0]['file']."<br>\n".
+			"line: ".$info[0]['line']."<br>\n".
+			"date: ".date("Y-m-d H:i:s")."<br>\n".
+			"===================================";
+
+		file_put_contents('./logs/mysql.log',strip_tags($error)."\n\n",FILE_APPEND);
+		echo $error;
+		exit();
 	}
-	return $el;
+	return $res;
+}
+
+function es($el,$key = 0) {
+	return DB::_($key)->real_escape_string($el);
 }
 
 function hc($el) {

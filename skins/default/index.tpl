@@ -45,6 +45,7 @@
 				<a href="/program">PROGRAM</a>
 				<a href="/reviews">REVIEWS</a>
 				<a href="/products">PRODUCTS</a>
+				<a href="/books">BOOKS</a>
 				<?php
 				if(isset($_SESSION['user'])) { ?>
 					<div class="logout">

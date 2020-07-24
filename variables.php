@@ -20,7 +20,7 @@ if(isset($_GET['route'])) {
 		} else {
 			$_GET['key'.($k-1)] = $v;
 		}
-		++$i;
+ 		++$i;
 	}
 	unset($_GET['route']);
 }
@@ -34,26 +34,19 @@ if(!isset($_GET['module'])) {
 		WHERE `module` = '".es($_GET['module'])."'
 		LIMIT 1
 	");
-	if(!mysqli_num_rows($res)) {
+	if(!$res->num_rows) {
 		header("Location: /404");
 		exit();
 	} else {
-		$staticpage = mysqli_fetch_assoc($res);
+		$staticpage = $res->fetch_assoc();
+		$res->close();
 		if($staticpage['static'] == 1) {
 			$_GET['module'] = 'staticpage';
 			$_GET['page'] = 'main';
 		}
 	}
 }
-/*
-$allowed = array('static','errors','calc','game','program','cab','reviews','products','news',);
-	if(!isset($_GET['module'])) {
-		$_GET['module'] = 'static';
-	} elseif(!in_array($_GET['module'],$allowed) && Core::$SKIN != 'admin') {
-		header("Location: /errors/404");
-		exit();
-	}
-*/
+
 if(!isset($_GET['page'])) {
 	$_GET['page'] = 'main';
 }

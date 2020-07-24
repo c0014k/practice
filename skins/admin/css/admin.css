@@ -72,6 +72,10 @@
 	width:80%;
 	margin:auto;
 	padding: 40px 0 20px 0;
+	display:flow-root;
+}
+.form {
+	display:flow-root;
 }
 .footer-admin {
 	margin-top: 80px;
@@ -97,10 +101,9 @@
 .table-admin {
 	font-size: 18px;
 	font-family:"Quicksand", sans-serif;
-	margin-top: 40px;
 }
 .prod-parameter {
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 700;
 }
 .prod-podrobnee {
@@ -111,7 +114,8 @@
 	text-decoration:none;
 }
 .prod-edit {
-	margin: 15px 0 15px 0;
+	margin: 15px 80px 15px 0;
+	display:inline-block;
 }
 .doc-head {
 	font-size: 24px;
@@ -134,7 +138,8 @@
 	width:65%;
 }
 .form-delimiter-2 {
-	display:inline-block;
+	float:left;
+	margin: 40px 60px 0 0;
 }
 .prod-info {
 	float: left;

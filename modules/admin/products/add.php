@@ -1,8 +1,21 @@
 <?php
+if(isset($_POST['add_cat']) && !empty($_POST['new_cat'])) {
+	q("
+		INSERT INTO `products_cat` SET 
+		`name` = '".es($_POST['new_cat'])."'
+	") or exit('ОШИБКА:'.mysqli_error($link));
+}
 
-$category = array('Холодильники','Телевизоры','Ноутбуки',);
 if(isset($_POST['add'],$_POST['availability'])) {
-	if(in_array($_POST['category'], $category) && !empty($_POST['price'] && $_POST['description'] && $_POST['name'] && $_POST['category'] && $_POST['code'])) {
+	if(!empty($_POST['category'] && $_POST['price'] && $_POST['description'] && $_POST['name'] && $_POST['category'] && $_POST['code'])) {
+
+		$prod_cat = q("
+			SELECT `id`
+			FROM `products_cat`
+			WHERE `name` = '".es($_POST['category'])."'
+		")or exit('ОШИБКА:'.mysqli_error($link));
+		$prod_cat_row = $prod_cat->fetch_assoc();
+
 		if($_FILES['file']['error'] == 0) {
 			if(Uploader::upload($_FILES['file'])) {
 				Uploader::resize(300, 400, '300x400');
@@ -16,7 +29,8 @@ if(isset($_POST['add'],$_POST['availability'])) {
 					`name` 		  	= '".es(trim($_POST['name']))."',
 					`description` 	= '".es(trim($_POST['description']))."',
 					`price` 	  	= ".(float)$_POST['price'].",
-					`img`		   = '".$filename."'
+					`img`		  	= '".$filename."',
+					`cat_id`		= ".(int)$prod_cat_row['id']."
 				") or exit('ОШИБКА:'.mysqli_error($link));
 
 				$_SESSION['info'] = 'Запись была добавлена';
@@ -30,3 +44,7 @@ if(isset($_POST['add'],$_POST['availability'])) {
 		}
 	}
 }
+$res = q("
+	SELECT *
+	FROM `products_cat`
+") or exit('ОШИБКА:'.mysqli_error($link));

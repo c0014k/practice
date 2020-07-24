@@ -1,1 +1,1 @@
-Статика: <?php echo $staticpage['text']; ?>
+<?php echo $staticpage['text']; ?>

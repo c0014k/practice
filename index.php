@@ -7,10 +7,6 @@ session_start();
 // Конфиг сайта
 include_once './config.php';
 include_once './libs/default.php';
-
-$link = mysqli_connect(Core::$DB_LOCAL,Core::$DB_LOGIN,Core::$DB_PASS,Core::$DB_NAME);
-mysqli_set_charset($link,'utf8');
-
 include_once './variables.php';
 
 // Роутер

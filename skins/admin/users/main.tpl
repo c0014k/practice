@@ -31,7 +31,7 @@ if(isset($search)) { ?>
 	?>
 	<hr>
 	<div class="prod-edit"><a href="/admin/users/edit?id=<?php echo $row['id'];?>">РЕДАКТИРОВАТЬ</a></div>
-	<div><img src="<?php echo $row['img']?>"></div>
+	<div><img src="<?php echo '/uploaded/100x100/'.$row['img']?>"></div>
 	<div>
 		<?php echo '<span class="prod-parameter">Логин: </span>'.hc($row['login']).'<br><span class="prod-parameter">e-mail: </span>'.hc($row['email']).'<br><span class="prod-parameter">Возраст: </span>'.hc($row['age']).'<br><span class="prod-parameter">Пол: </span>'.hc($row['sex']).'<br><span class="prod-parameter">Активация: </span>'.$active.'<br><span class="prod-parameter">Доступ: </span>'.$access.'<br><span class="prod-parameter">Дата регистрации: </span><br>'.hc($row['regdate']).'<br><span class="prod-parameter">Последняя активность: </span><br>'.hc($row['lastactivitydate']).'<br><span class="prod-parameter">IP: </span>'.hc($row['ip']).'<br><span class="prod-parameter">Useragent: </span><br>'.hc($row['useragent']);?>
 	</div><br>

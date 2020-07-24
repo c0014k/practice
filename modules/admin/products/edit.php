@@ -50,3 +50,8 @@ if(!mysqli_num_rows($products)) {
 	exit();
 }
 $row = mysqli_fetch_assoc($products);
+
+$res = q("
+	SELECT *
+	FROM `products_cat`
+")or exit(mysqli_error($link));

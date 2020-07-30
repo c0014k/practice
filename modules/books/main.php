@@ -1,4 +1,10 @@
 <?php
+if(isset($_GET['num_page'])) {
+	$limit = Pagination::howPages('books',1,$_GET['num_page']);
+} else {
+	$limit = Pagination::howPages('books',1,1);
+}
+$start = Pagination::$start;
 
 if(isset($_GET['book'])) {
 	$books = q("
@@ -26,6 +32,7 @@ if(isset($_GET['book'])) {
 		SELECT *
 		FROM `books`
 		ORDER BY `id` ASC
+		LIMIT $start, $limit
 	")or exit('ОШИБКА:'.mysqli_error($link));
 }
 

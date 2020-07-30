@@ -1,5 +1,6 @@
 <div class="work-zone">
 <?php
+
 if(isset($result)) {
 	if(isset($_POST['num1'],$_POST['num2'],$_POST['action'])) {
 		echo '<div class="result">'.$_POST['num1'].$_POST['action'].$_POST['num2'].' = '.$result.'</div>';

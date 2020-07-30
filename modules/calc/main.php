@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($_POST['num1'],$_POST['num2'],$_POST['action'])) {
 	$result = 'ВВЕДИТЕ ЗНАЧЕНИЯ';
 } else {
@@ -20,3 +21,19 @@ if($action == '-') {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

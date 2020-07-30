@@ -7,7 +7,7 @@ if(isset($_POST['add_author']) && !empty($_POST['new_author'] && $_POST['about_a
 		`description` 	= '".es(trim($_POST['about_auth']))."'
 	") or exit('ОШИБКА:'.mysqli_error($link));
 
-	$_SESSION['info'] = 'Автор был добавлен';
+	$_SESSION['info'] = 'Автор был успешно добавлен';
 	if(isset($_SESSION['info'])){
 		$info = $_SESSION['info'];
 		unset($_SESSION['info']);

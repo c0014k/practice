@@ -4,6 +4,12 @@ if(isset($_POST['add_cat']) && !empty($_POST['new_cat'])) {
 		INSERT INTO `products_cat` SET 
 		`name` = '".es($_POST['new_cat'])."'
 	") or exit('ОШИБКА:'.mysqli_error($link));
+
+	$_SESSION['info'] = 'Категория была успешно добавлена';
+	if(isset($_SESSION['info'])){
+		$info = $_SESSION['info'];
+		unset($_SESSION['info']);
+	}
 }
 
 if(isset($_POST['add'],$_POST['availability'])) {

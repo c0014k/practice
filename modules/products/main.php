@@ -1,12 +1,18 @@
 <?php
 
-if(isset($_POST['filter']) && isset($_POST['cat_ids'])) {
-	$cat_ids = implode(',',intAll($_POST['cat_ids']));
+if(isset($_GET['num_page'])) {
+	$limit = Pagination::howPages('products',3,$_GET['num_page']);
+} else {
+	$limit = Pagination::howPages('products',3,1);
+}
+$start = Pagination::$start;
+
+if(isset($_GET['cat']) && !isset($_GET['id'])) {
 	$products = q("
 		SELECT *
 		FROM `products`
-		WHERE `cat_id` IN (".$cat_ids.")
-		ORDER BY `category` ASC
+		WHERE `cat_id` = ".(int)$_GET['cat']."
+		ORDER BY `name` ASC
 	")or exit('ОШИБКА:'.mysqli_error($link));
 } elseif(isset($_GET['id'])) {
 	$products = q("
@@ -20,6 +26,7 @@ if(isset($_POST['filter']) && isset($_POST['cat_ids'])) {
 		SELECT *
 		FROM `products`
 		ORDER BY `category` ASC
+		LIMIT $start, $limit
 	")or exit('ОШИБКА:'.mysqli_error($link));
 }
 

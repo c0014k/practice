@@ -1,4 +1,8 @@
 <div class="work-zone">
+<?php
+if(isset($info)) {
+	echo $info;
+} ?>
 <form action="" method="post" enctype="multipart/form-data">
 	<div class="form-delimiter-2">
 	<span class="prod-parameter">Добавить новую категорию товара:</span><br>

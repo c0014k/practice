@@ -952,6 +952,17 @@
 .prod-parameter {
 	font-weight: 700;
 }
+.prod-cat {
+	margin:5px 25px 5px 5px;
+}
+.prod-cat a{
+	font-size:21px;
+	text-decoration:none;
+	color: black;
+}
+.all-prod {
+	float:right;
+}
 .prod-podrobnee {
 	margin:5px 5px 5px 5px;
 	font-size:21px;
@@ -986,3 +997,22 @@
 .clearfix2:after {
 	clear:both;
 }
+/*PAGINATOR*/
+.paginator {
+	margin: 30px 0 30px 0;
+	text-align:center;
+}
+
+.paginator-page > a {
+	text-decoration: none;
+	color: black;
+	margin:10px 10px 10px 10px;
+	padding:10px 10px 10px 10px;
+	background-color: lightgray;
+	border-radius:5px;
+}
+.paginator-page a:active {
+	color: white;
+	background-color: #3B566E;
+}
+

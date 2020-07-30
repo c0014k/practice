@@ -36,10 +36,20 @@ if(isset($_GET['author'])) { ?>
 			</div>
 		<?php } else {?>
 				<div class="prod-img">
-					<img src="<?php echo '/uploaded/100x100/'.$row['img']?>">
+					<a href="/books?book=<?php echo $row['name'];?>"><img src="<?php echo '/uploaded/100x100/'.$row['img']?>"></a>
 				</div>
 				<div class="prod-podrobnee"><a href="/books?book=<?php echo $row['name'];?>">подробнее...</a></div>
 		<?php }
 	}
-}?>
+	if(!isset($_GET['book'])){
+		if(isset($_GET['num_page'])) {
+			Pagination::showPagination('books',$_GET['num_page']);
+		} else {
+			Pagination::showPagination('books',1);
+		}
+	}
+}
+
+?>
+
 </div>

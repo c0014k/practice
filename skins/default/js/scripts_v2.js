@@ -1,3 +1,4 @@
+"use strict";
 
 function hideShow(x) {
 	let y = document.getElementById(x);
@@ -8,7 +9,7 @@ function hideShow(x) {
 	}
 }
 
-function redAndBlue(x) {
+function changeAndBlue(x) {
 	let y = document.getElementsByClassName(x);
 	for( let i = 0; i < y.length; i++){
 		if(y[i].style.color === 'red') {
@@ -19,6 +20,6 @@ function redAndBlue(x) {
 	}
 }
 
-function areYouSure(){
+function areYouSure(x){
 	return confirm('Вы уверены?');
 }

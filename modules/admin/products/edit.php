@@ -11,7 +11,7 @@ if(isset($_POST['edit'],$_POST['availability'])) {
 			`description`  = '".es(trimAll($_POST['description']))."',
 			`price`        = ".(float)$_POST['price']."
 			WHERE `id` 	   = ".(int)$_GET['id']."
-		") or exit('ОШИБКА:'.mysqli_error($link));
+		");
 
 		$_SESSION['info'] = 'Запись была изменена';
 		header("Location: /admin/products");
@@ -27,7 +27,7 @@ if(isset($_POST['editimg'])) {
 			UPDATE `products` SET
 			`img`		= '".$filename."'
 			WHERE `id`	= ".(int)$_GET['id']."
-		") or exit('ОШИБКА:'.mysqli_error($link));
+		");
 
 		$_SESSION['info'] = 'Запись была изменена';
 		header("Location: /admin/products/edit?id=".(int)$_GET['id']."");
@@ -42,7 +42,7 @@ $products = q("
 	FROM `products`
 	WHERE `id` = ".(int)$_GET['id']."
 	LIMIT 1
-") or exit(mysqli_error($link));
+");
 
 if(!mysqli_num_rows($products)) {
 	$_SESSION['info'] = 'Данного продукта не существует';
@@ -54,4 +54,4 @@ $row = mysqli_fetch_assoc($products);
 $res = q("
 	SELECT *
 	FROM `products_cat`
-")or exit(mysqli_error($link));
+");

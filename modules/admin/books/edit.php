@@ -9,7 +9,7 @@ if(isset($_POST['edit'],$_POST['availability']) && !empty($_POST['price'] && $_P
 		`description`  = '".es(trimAll($_POST['description']))."',
 		`price`        = ".(float)$_POST['price']."
 		WHERE `id` 	   = ".(int)$_GET['id']."
-	") or exit('ОШИБКА:'.mysqli_error($link));
+	");
 
 	$_SESSION['info'] = 'Запись была изменена';
 	header("Location: /admin/books");
@@ -25,7 +25,7 @@ if(isset($_POST['editimg'])) {
 			UPDATE `books` SET
 			`img`		= '".$filename."'
 			WHERE `id`	= ".(int)$_GET['id']."
-		") or exit('ОШИБКА:'.mysqli_error($link));
+		");
 
 		$_SESSION['info'] = 'Запись была изменена';
 		header("Location: /admin/books/edit?id=".(int)$_GET['id']."");
@@ -40,7 +40,7 @@ $books = q("
 	FROM `books`
 	WHERE `id` = ".(int)$_GET['id']."
 	LIMIT 1
-") or exit(mysqli_error($link));
+");
 
 if(!mysqli_num_rows($books)) {
 	$_SESSION['info'] = 'Данного продукта не существует';

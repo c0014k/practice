@@ -74,9 +74,6 @@
 	padding: 40px 0 20px 0;
 	display:flow-root;
 }
-.form {
-	display:flow-root;
-}
 .footer-admin {
 	margin-top: 80px;
 	padding-top: 30px;
@@ -107,7 +104,6 @@
 	font-weight: 700;
 }
 .prod-podrobnee {
-	margin: 0 0 0 165px;
 	font-size:21px;
 }
 .prod-podrobnee a {
@@ -133,13 +129,15 @@
 .back-to-all-users a {
 	text-decoration:none;
 }
+.back-to-all {
+	margin-top: 30px;
+}
 .form-delimiter {
-	display:inline-block;
-	width:65%;
+	float: left;
+	margin-right: 50px;
 }
 .form-delimiter-2 {
-	float:left;
-	margin: 40px 60px 0 0;
+	float: left;
 }
 .prod-info {
 	float: left;
@@ -150,10 +148,18 @@
 	display: inline-block;
 	width: 55%;
 	text-align: center;
-	height:120px;
 }
 .errors {
-	color:#ff0000;
+	color: #ff0000;
 	font-size: 21px;
 	font-family:"Quicksand", sans-serif;
+}
+
+.button-add {
+	margin: 20px 0 0 0;
+}
+.clearfix:after {
+	content: " ";
+	display: table;
+	clear: both;
 }

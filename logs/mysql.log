@@ -9,55 +9,6 @@
 Строка: 22
 Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/b>'' at line 4
 
-Дата: 2020.03.18, Время: 16:32 pm
-Запрос: 
-    INSERT INTO `users` SET
-    `login` = '<b',
-    `password` = ''',
-    `about` = '>ha</b>'
-
-Файл: W:\domains\praktika.ua\modules\static\main.php
-Строка: 22
-Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/b>'' at line 4
-
-Дата: 2020.03.25, Время: 21:14 pm
-Запрос: 
-			INSERT INTO `users` SET 
-			`login`	= 'Alf Alien',
-			`pass`	= '130v93ncds,m385vmo',
-			`email`	= 'alf@alien.un',
-			`age`	= '99',
-		
-Файл: W:\domains\praktika.ua\modules\cab\registration.php
-Строка: 26
-Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
-
-Дата: 	 2020.03.26, Время: 16:41 pm
-Запрос: 
-			INSERT INTO `users` SET 
-			`login`	= 'Sara',
-			`pass`	= 'iDplhTxdZYYGE',
-			`email`	= 'connor@trm.us',
-			`age`	= '37',
-			`hash`	= 'iDNzixZGZ9lng'
-		
-Файл:	 W:\domains\praktika.ua\modules\cab\registration.php
-Строка: 27
-Ошибка: Field 'active' doesn't have a default value
-
-Дата: 	 2020.03.30, Время: 14:35 pm
-Запрос: 
-						UPDATE `users` SET
-						`hash`		= 'iDgpdedi5KLeE'
-						`ip`		= '127.0.0.1'
-						`useragent`	= 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36'
-						WHERE id	= '43'
-					
-Файл:	 W:\domains\praktika.ua\modules\cab\auth.php
-Строка: 30
-Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`ip`		= '127.0.0.1'
-						`useragent`	= 'Mozilla/5.0 (Windows NT 10.0; Win64; x' at line 3
-
 Дата: 	 2020.04.06, Время: 15:52 pm
 Запрос: 
 		DELETE FROM `reviews`
@@ -96,15 +47,6 @@
 Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.0.1,
 			`useragent`	= Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/53' at line 9
 
-Дата: 	 2020.04.21, Время: 13:35 pm
-Запрос: 
-		DELETE FROM `users`
-		WHERE `id` IN ()	
-	
-Файл:	 W:\domains\praktika.ua\modules\admin\users\main.php
-Строка: 15
-Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 2
-
 Дата: 	 2020.04.28, Время: 18:43 pm
 Запрос: 
 			UPDATE `products` SET
@@ -134,30 +76,6 @@
 		WHERE `id` = 28
 		AND `hash` = 'i' at line 3
 
-Дата: 	 2020.05.06, Время: 14:33 pm
-Запрос: 
-			UPDATE `users` SET
-			`login`		= 'Alf',
-			`email`		= 'jla@per.xx',
-			`sex`		= 'Женский',
-			`age`		= 18,
-			`active`	= 1,
-			`access`	= 0
-			WHERE `id`  = 25
-		
-Файл:	 W:\domains\praktika.ua\modules\admin\users\edit.php
-Строка: 28
-Ошибка: Duplicate entry 'Alf' for key 'ixLogin'
-
-Дата: 	 2020.05.12, Время: 16:13 pm
-Запрос: 
-		`img`		   = '/uploaded/20200512-161330img15693.jpg'
-		WHERE `id` 	   = 16
-	
-Файл:	 W:\domains\praktika.ua\modules\admin\products\edit.php
-Строка: 5
-Ошибка: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`img`		   = '/uploaded/20200512-161330img15693.jpg'
-		WHERE `id` 	   = 16' at line 1
 
 Дата: 	 2020.05.12, Время: 19:47 pm
 Запрос: 

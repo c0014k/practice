@@ -1,8 +1,8 @@
 <div class="work-zone">
 <?php
-if(isset($info)) {?>
-	<h1><?php echo $info;?></h1>
-<?php }
+if(isset($info)) {
+	echo $info;
+}
 
 if(!isset($_GET['id'])) {
 	while($row2 = $res->fetch_assoc()) {?>

@@ -8,7 +8,7 @@
 	<td><select name="category">
 	<option selected><?php if(isset($_POST['category'])) {echo hc($_POST['category']);} else {echo hc($row['category']);}?></option>
 	<?php
-	while($row2 = $res->fetch_assoc()){
+	while($row2 = $res->fetch_assoc()) {
 		echo '<option>'.hc($row2['name']).'</option>';
 	}
 	$res->close();?>
@@ -17,7 +17,7 @@
 </tr>
 <tr>
 	<td>Код товара</td>
-	<td><input size="26" type="text" name="code" value="<?php if(isset($_POST['code'])) {echo (int)($_POST['code']);} else {echo (int)($row['code']);}?>"><td>
+	<td><input size="26" type="text" name="code" value="<?php if(isset($_POST['code'])) {echo (int)$_POST['code'];} else {echo (int)$row['code'];}?>"><td>
 </tr>
 <tr>
 	<td>Наличие товара</td>
@@ -50,7 +50,7 @@
 </tr>
 <tr>
 	<td>Цена</td>
-	<td><input size="26" type="text" name="price" value="<?php if(isset($_POST['price'])) {echo (float)($_POST['price']);} else {echo (float)($row['price']);}?>"></td>
+	<td><input size="26" type="text" name="price" value="<?php if(isset($_POST['price'])) {echo (float)$_POST['price'];} else {echo (float)$row['price'];}?>"></td>
 </tr>
 </table>
 <input type="submit" name="edit" value="Внести изменения">

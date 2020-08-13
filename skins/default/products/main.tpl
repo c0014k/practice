@@ -23,6 +23,7 @@ if (!isset($_GET['cat'])) {
 		<div class="prod-img">
 			<a href="/products?cat=<?php echo (int)$row['cat_id'];?>&id=<?php echo (int)$row['id'];?>"><img src="<?php echo '/uploaded/100x100/'.$row['img']?>"></a>
 		</div>
+		<div class="clearfix"></div>
 		<div class="prod-podrobnee"><a href="/products?cat=<?php echo (int)$row['cat_id'];?>&id=<?php echo (int)$row['id'];?>">подробнее...</a></div>
 		<?php
 	}
@@ -43,6 +44,7 @@ if (!isset($_GET['cat'])) {
 	<div class="prod-img">
 		<a href="/products?cat=<?php echo (int)$row['cat_id'];?>&id=<?php echo (int)$row['id'];?>"><img src="<?php echo '/uploaded/100x100/'.hc($row['img']);?>"></a>
 	</div>
+	<div class="clearfix"></div>
 	<div class="prod-podrobnee"><a href="/products?cat=<?php echo (int)$row['cat_id'];?>&id=<?php echo (int)$row['id'];?>">подробнее...</a></div>
 	<?php
 	}
@@ -63,11 +65,12 @@ if (!isset($_GET['cat'])) {
 		<div class="prod-img">
 			<img src="<?php echo '/uploaded/300x400/'.hc($row['img']);?>">
 		</div>
+	<div class="clearfix"></div>
 	<?php
 }
 if (!isset($_GET['cat'])) {
 	if(isset($_GET['num_page'])) {
-		Pagination::showPagination('products',(int)$_GET['num_page']);
+		Pagination::showPagination('products',$_GET['num_page']);
 	} else {
 		Pagination::showPagination('products',1);
 	}

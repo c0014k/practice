@@ -21,6 +21,7 @@
 					<div class="drop-menu">
 						<a href="/admin/products/add"><div class="link">ADD</div></a>
 						<a href="/admin/products"><div class="link">EDIT</div></a>
+						<a href="/admin/products/catmanager"><div class="link">Сategorys manager</div></a>
 					</div>
 				</div>
 				<div class="main-menu"><span class="pointer">BOOKS</span>
@@ -28,6 +29,7 @@
 					<div class="drop-menu">
 						<a href="/admin/books/add"><div class="link">ADD</div></a>
 						<a href="/admin/books"><div class="link">EDIT</div></a>
+						<a href="/admin/products/authmanager"><div class="link">Authors manager</div></a>
 					</div>
 				</div>
 

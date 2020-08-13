@@ -4,13 +4,27 @@ if(isset($_POST['edit'],$_POST['availability'])) {
 	if(!empty($_POST['price'] && $_POST['description'] && $_POST['name'] && $_POST['code'] && $_POST['category'])) {
 		q( "
 			UPDATE `products` SET
-			`category` 	   = '".es($_POST['category'])."',
-			`code`		   = ".(int)$_POST['code'].",
-			`availability` = ".(int)$_POST['availability'].",
-			`name` 		   = '".es(trimAll($_POST['name']))."',
-			`description`  = '".es(trimAll($_POST['description']))."',
-			`price`        = ".(float)$_POST['price']."
-			WHERE `id` 	   = ".(int)$_GET['id']."
+			`category` 	   	= '".es($_POST['category'])."',
+			`code`		   	= ".(int)$_POST['code'].",
+			`availability` 	= ".(int)$_POST['availability'].",
+			`name` 		  	= '".es(trimAll($_POST['name']))."',
+			`description` 	= '".es(trimAll($_POST['description']))."',
+			`price`       	= ".(float)$_POST['price']."
+			WHERE `id` 	   	= ".(int)$_GET['id']."
+		");
+
+		$cat_id = q("
+			SELECT *
+			FROM `products_cat`
+			WHERE `name` 	= '".es($_POST['category'])."'
+			LIMIT 1
+		");
+		$cat_id = $cat_id->fetch_assoc();
+
+		q( "
+			UPDATE `products` SET
+			`cat_id`		= ".(int)$cat_id['id']."		
+			WHERE `id` 	   	= ".(int)$_GET['id']."
 		");
 
 		$_SESSION['info'] = 'Запись была изменена';
@@ -49,7 +63,7 @@ if(!mysqli_num_rows($products)) {
 	header("Location: /admin/products");
 	exit();
 }
-$row = mysqli_fetch_assoc($products);
+$row = $products->fetch_assoc();
 
 $res = q("
 	SELECT *

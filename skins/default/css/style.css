@@ -942,6 +942,7 @@
 	float: left;
 	font-size: 21px;
 	width: 45%;
+	word-wrap:break-word;
 }
 .prod-img {
 	display: inline-block;

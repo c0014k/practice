@@ -91,13 +91,4 @@ if(isset($info)) {
 <input type="submit" name="add" value="Добавить товар">
 </div>
 </form>
-
-<form action="" method="post" enctype="multipart/form-data">
-	<div class="form-delimiter-2">
-		<span class="prod-parameter">Добавить новую категорию товара:</span><br>
-		<input type="text" name="new_cat">
-		<input type="submit" name="add_cat" value="Добавить категорию">
-	</div>
-</form>
-
 </div>

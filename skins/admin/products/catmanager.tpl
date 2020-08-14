@@ -3,6 +3,10 @@
 if(isset($info)) {
 	echo $info;
 }
+if(isset($errors['cat'])) {
+	echo '<span class="errors">'.$errors['cat'].'</span>';
+}
+
 ?>
 <form action="" method="post" enctype="multipart/form-data">
 	<div>

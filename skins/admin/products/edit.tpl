@@ -1,5 +1,10 @@
 <div class="work-zone">
 <div class="form-delimiter">
+<?php
+if(isset($errors['prod'])) {
+	echo '<span class="errors">'.$errors['prod'].'</span>';
+}
+?>
 <form action="" method="post">
 <table class="table-admin">
 

@@ -27,21 +27,22 @@ if(isset($_POST['add_cat']) && !empty($_POST['new_cat'])) {
 	}
 }
 
-if(isset($_POST['delete']) && isset($_POST['cat_ids'])) {
-	$ids = implode(',',intAll($_POST['cat_ids']));
+if(isset($_POST['delete']) && isset($_POST['cat_id'])) {
 	q("
 		DELETE FROM `products_cat`
-		WHERE `id` IN (".$ids.")	
+		WHERE `id` = ".(int)$_POST['cat_id']."
+		LIMIT 1
 	");
 
 	q("
 		UPDATE `products` SET
 		`category` 	= 'undefined',
 		`cat_id`	= '0'
-		WHERE `cat_id` IN (".$ids.")
+		WHERE `cat_id` = ".(int)$_POST['cat_id']."
+		LIMIT 1
 	");
 
-	$_SESSION['info'] = 'Выбранные категории удалены';
+	$_SESSION['info'] = 'Категория удалены';
 	header("Location: /admin/products/catmanager");
 	exit();
 }

@@ -2,7 +2,11 @@
 <?php
 if(isset($info)) {
 	echo $info;
-}?>
+}
+if(isset($errors['prod'])) {
+	echo '<span class="errors">'.$errors['prod'].'</span>';
+}
+?>
 <form action="" method="post" enctype="multipart/form-data">
 <div class="form-delimiter">
 <span class="prod-parameter">Добавить новый товар:</span><br>

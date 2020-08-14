@@ -2,34 +2,58 @@
 
 if(isset($_POST['edit'],$_POST['availability'])) {
 	if(!empty($_POST['price'] && $_POST['description'] && $_POST['name'] && $_POST['code'] && $_POST['category'])) {
-		q( "
-			UPDATE `products` SET
-			`category` 	   	= '".es($_POST['category'])."',
-			`code`		   	= ".(int)$_POST['code'].",
-			`availability` 	= ".(int)$_POST['availability'].",
-			`name` 		  	= '".es(trimAll($_POST['name']))."',
-			`description` 	= '".es(trimAll($_POST['description']))."',
-			`price`       	= ".(float)$_POST['price']."
-			WHERE `id` 	   	= ".(int)$_GET['id']."
-		");
 
-		$cat_id = q("
-			SELECT *
-			FROM `products_cat`
-			WHERE `name` 	= '".es($_POST['category'])."'
-			LIMIT 1
-		");
-		$cat_id = $cat_id->fetch_assoc();
+		$errors = array();
+		if(mb_strlen($_POST['name']) < 2){
+			$errors['prod'] = 'Название товара слишком короткое';
+		} elseif(mb_strlen($_POST['name']) > 42) {
+			$errors['prod'] = 'Название товара слишком длинное';
+		}
+		if(!count($errors)) {
+			$res = q("
+						SELECT `id`
+						FROM `products`
+						WHERE `name` = '".es($_POST['name'])."'
+						LIMIT 1
+					");
+			if(mysqli_num_rows($res)) {
+				$errors['prod'] = 'Товар с таким именем уже существует';
+			}
+		}
+		if(mb_strlen($_POST['description']) < 5){
+			$errors['prod'] = 'Описание товара слишком короткое';
+		}
 
-		q( "
-			UPDATE `products` SET
-			`cat_id`		= ".(int)$cat_id['id']."		
-			WHERE `id` 	   	= ".(int)$_GET['id']."
-		");
+		if(!count($errors)) {
+			q("
+				UPDATE `products` SET
+				`category` 	   	= '".es($_POST['category'])."',
+				`code`		   	= ".(int)$_POST['code'].",
+				`availability` 	= ".(int)$_POST['availability'].",
+				`name` 		  	= '".es(trimAll($_POST['name']))."',
+				`description` 	= '".es(trimAll($_POST['description']))."',
+				`price`       	= ".(float)$_POST['price']."
+				WHERE `id` 	   	= ".(int)$_GET['id']."
+			");
 
-		$_SESSION['info'] = 'Запись была изменена';
-		header("Location: /admin/products");
-		exit();
+			$cat_id = q("
+				SELECT *
+				FROM `products_cat`
+				WHERE `name` 	= '".es($_POST['category'])."'
+				LIMIT 1
+			");
+			$cat_id = $cat_id->fetch_assoc();
+
+			q("
+				UPDATE `products` SET
+				`cat_id`		= ".(int)$cat_id['id']."		
+				WHERE `id` 	   	= ".(int)$_GET['id']."
+			");
+
+			$_SESSION['info'] = 'Запись была изменена';
+			header("Location: /admin/products");
+			exit();
+		}
 	}
 }
 if(isset($_POST['editimg'])) {

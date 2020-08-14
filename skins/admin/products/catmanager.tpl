@@ -28,7 +28,7 @@ if(isset($errors['cat'])) {
 
 			<form action="" method="post" class="form-2">
 				<div class="cat-delete"><input type="submit" name="delete" value="Удалить"></div>
-				<input type="checkbox" name="cat_ids[]" value="<?php echo (int)$row['id'];?>" id="qwe" class="cat-delete">
+				<input type="checkbox" name="cat_id" value="<?php echo (int)$row['id'];?>" id="qwe" class="cat-delete">
 			</form>
 		</div>
 		<div class="clearfix"></div>

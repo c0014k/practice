@@ -5,11 +5,47 @@ if(isset($_POST['edit'],$_POST['availability']) && !empty($_POST['price'] && $_P
 		UPDATE `books` SET
 		`code`		   = ".(int)$_POST['code'].",
 		`availability` = ".(int)$_POST['availability'].",
-		`name` 		   = '".es(trimAll($_POST['name']))."',
-		`description`  = '".es(trimAll($_POST['description']))."',
+		`name` 		   = '".es(trim($_POST['name']))."',
+		`description`  = '".es(trim($_POST['description']))."',
 		`price`        = ".(float)$_POST['price']."
 		WHERE `id` 	   = ".(int)$_GET['id']."
 	");
+
+	if(isset($_POST['authors'])) {
+		$numberOfAuthors = count($_POST['authors']);
+		for($i = 0; $i < $numberOfAuthors; $i++) {
+			$authorsMass[$i] = es($_POST['authors'][$i]);
+		}
+
+		$authors2 = '';
+		for($i = 0; $i < $numberOfAuthors; $i++) {
+			$authors2 .= "'$authorsMass[$i]',";
+		}
+
+		$authorsString = substr($authors2,0,-1);
+
+		$res = q("
+			SELECT *
+			FROM `authors`
+			WHERE `name` IN (".$authorsString.")
+		");
+
+		q("
+			DELETE
+			FROM `book2authors`
+			WHERE `book_id` = ".(int)$_GET['id']."
+		");
+
+		for($i = 0; $i < $numberOfAuthors; $i++){
+			$row = $res->fetch_assoc();
+			q("
+				INSERT INTO `book2authors` SET
+				`book_id` 	  	= ".(int)$_GET['id'].",
+				`author_id`		= ".(int)$row['id']."
+			");
+		}
+		$res->close();
+	}
 
 	$_SESSION['info'] = 'Запись была изменена';
 	header("Location: /admin/books");
@@ -35,16 +71,41 @@ if(isset($_POST['editimg'])) {
 	}
 }
 
-$books = q("
+$res = q("
+	SELECT `author_id`
+	FROM `book2authors`
+	WHERE `book_id` = ".(int)$_GET['id']."
+");
+while($row = $res->fetch_assoc()) {
+	$res2 = q("
+		SELECT `name`
+		FROM `authors`
+		WHERE `id` = ".$row['author_id']."
+	");
+
+	$author = $res2->fetch_assoc();
+	$authors[] = $author['name'];
+}
+$res->close();
+$res2->close();
+
+
+$res = q("
+		SELECT *
+		FROM `authors`
+	");
+
+$book = q("
 	SELECT *
 	FROM `books`
 	WHERE `id` = ".(int)$_GET['id']."
 	LIMIT 1
 ");
 
-if(!mysqli_num_rows($books)) {
-	$_SESSION['info'] = 'Данного продукта не существует';
+if(!mysqli_num_rows($book)) {
+	$_SESSION['info'] = 'Данной книги не существует';
 	header("Location: /admin/books");
 	exit();
 }
-$row = $books->fetch_assoc();
+$row = $book->fetch_assoc();
+$book->close();

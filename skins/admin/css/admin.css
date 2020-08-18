@@ -131,6 +131,7 @@
 }
 .form-1 {
 	float:left;
+	margin-right:20px;
 }
 .form-2 {
 	float:right;
@@ -188,4 +189,12 @@
 	content: " ";
 	display: table;
 	clear: both;
+}
+.authors-edit {
+	margin-left:124px;
+}
+.authors-edit-name {
+	float: left;
+	font-size: 21px;
+	width: 16%;
 }

@@ -48,7 +48,7 @@ if(isset($info)) {
 	<td>О книге</td>
 	<td>
 	<?php if(!empty($_POST['description'])) {?>
-		<textarea name="description" cols="28" rows="2"><?php echo hc($_POST['description']);?></textarea>
+			<textarea name="description" cols="28" rows="2"><?php echo hc($_POST['description']);?></textarea>
 	<?php } else {?>
 			<textarea name="description" cols="28" rows="2"></textarea>
 	<?php }?>
@@ -67,8 +67,8 @@ if(isset($info)) {
 </table>
 </div>
 <div class="form-delimiter">
+<span class="table-admin">Укажите авторов книги:</span><br>
 <select multiple size="10" name="authors[]">
-<option selected>Выберете автора (авторов)</option>
 <?php
 while($row = $res->fetch_assoc()) {
 	echo '<option>'.hc($row['name']).'</option>';
@@ -81,16 +81,4 @@ $res->close();?>
 	<div class="button-add"><input type="submit" name="add" value="Добавить книгу"></div>
 </div>
 </form>
-
-<form action="" method="post" enctype="multipart/form-data">
-	<div class="form-delimiter-2">
-		<span class="prod-parameter">Добавить нового автора:</span><br>
-		Има автора:<br>
-		<input type="text" name="new_author"><br>
-		Про автора:<br>
-		<textarea name="about_auth" cols="28" rows="2"></textarea><br>
-		<div class="button-add"><input type="submit" name="add_author" value="Добавить автора"></div>
-	</div>
-</form>
-
 </div>

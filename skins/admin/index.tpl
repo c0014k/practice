@@ -29,7 +29,7 @@
 					<div class="drop-menu">
 						<a href="/admin/books/add"><div class="link">ADD</div></a>
 						<a href="/admin/books"><div class="link">EDIT</div></a>
-						<a href="/admin/products/authmanager"><div class="link">Authors manager</div></a>
+						<a href="/admin/books/authormanager"><div class="link">Authors manager</div></a>
 					</div>
 				</div>
 

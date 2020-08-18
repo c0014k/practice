@@ -1,19 +1,5 @@
 <?php
 
-if(isset($_POST['add_author']) && !empty($_POST['new_author'] && $_POST['about_auth'])) {
-	q("
-		INSERT INTO `authors` SET 
-		`name` 			= '".es($_POST['new_author'])."',
-		`description` 	= '".es(trim($_POST['about_auth']))."'
-	");
-
-	$_SESSION['info'] = 'Автор был успешно добавлен';
-	if(isset($_SESSION['info'])) {
-		$info = $_SESSION['info'];
-		unset($_SESSION['info']);
-	}
-}
-
 if(isset($_POST['add'],$_POST['availability'],$_POST['authors']) && !empty($_POST['code'] && $_POST['name'] && $_POST['description'] && $_POST['price'])) {
 	$numberOfAuthors = count($_POST['authors']);
 	for($i = 0; $i < $numberOfAuthors; $i++) {

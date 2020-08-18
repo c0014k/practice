@@ -40,16 +40,30 @@
 	<td>Цена</td>
 	<td><input size="26" type="text" name="price" value="<?php if(isset($_POST['price'])) {echo (float)($_POST['price']);} else {echo (float)($row['price']);}?>"></td>
 </tr>
+	<tr>
+	<td>Авторы книги:</td>
+	<td><?php foreach($authors as $value){echo hc($value).", ";}?></td>
+	</tr>
 </table>
+<div class="authors-edit">
+<select multiple size="10" name="authors[]">
+	<?php
+	while($row2 = $res->fetch_assoc()) {
+		echo '<option>'.hc($row2['name']).'</option>';
+	}
+	$res->close();?>
+</select><br>
 <input type="submit" name="edit" value="Внести изменения">
+</div>
 </form>
 </div>
+
 <div class="form-delimiter-2">
-<img src="<?php echo '/uploaded/300x400/'.hc($row['img']);?>"><br>
-<?php if (isset($errors['photo'])){echo '<span class="errors">'.$errors['photo'].'</span>';}?>
-<form action="" method="post" enctype="multipart/form-data">
-	<input type="file" name="file" accept="image/jpeg,image/png,image/gif">
-	<input type="submit" name="editimg" value="Изменить изображение">
-</form>
+	<img src="<?php echo '/uploaded/300x400/'.hc($row['img']);?>"><br>
+	<?php if (isset($errors['photo'])){echo '<span class="errors">'.$errors['photo'].'</span>';}?>
+	<form action="" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" accept="image/jpeg,image/png,image/gif">
+		<input type="submit" name="editimg" value="Изменить изображение">
+	</form>
 </div>
 </div>

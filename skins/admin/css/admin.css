@@ -123,6 +123,7 @@
 	transform:scale(2.3);
 	opacity:0.9;
 	cursor:pointer;
+	margin-top:10px;
 }
 .prod-cat {
 	float:left;
@@ -197,4 +198,11 @@
 	float: left;
 	font-size: 21px;
 	width: 16%;
+	margin-right: 20px;
+}
+.choose_author{
+	margin-left:60px;
+	font-size: 24px;
+	font-weight: 700;
+	float:left;
 }

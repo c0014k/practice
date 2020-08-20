@@ -137,6 +137,12 @@ if(isset($_GET['id'])) {
 		WHERE `id` = ".(int)$_GET['id']." 
 	");
 
+	if(!mysqli_num_rows($author)) {
+		$_SESSION['info'] = 'Данного автора не существует';
+		header("Location: /admin/books/authormanager");
+		exit();
+	}
+
 	$books2auth = q("
 		SELECT `book_id`
 		FROM `book2authors`

@@ -1,4 +1,9 @@
 <div class="work-zone">
+<?php
+if(isset($info)) {
+	echo '<div class="errors">'.$info.'</div>';
+}
+?>
 <div class="form-delimiter">
 <form action="" method="post">
 <table class="table-admin">

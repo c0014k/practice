@@ -1,9 +1,9 @@
 <div class="work-zone">
 
 <?php
-if(isset($info)) {?>
-	<h1><?php echo $info;?></h1>
-<?php }
+if(isset($info)) {
+	echo '<div class="errors">'.$info.'</div>';
+}
 
 if(isset($_GET['author'])) {?>
 	<div class="prod-info"><?php

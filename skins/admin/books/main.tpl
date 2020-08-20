@@ -4,8 +4,8 @@
 if(isset($info)) {
 	echo '<div class="errors">'.$info.'</div>';
 }
-
 if(isset($_GET['author'])) {?>
+	<div class="prod-edit"><a href="/admin/books/authormanager?id=<?php echo (int)$row['id'];?>">РЕДАКТИРОВАТЬ</a></div><br>
 	<div class="prod-info"><?php
 		echo '<span class="prod-parameter">Имя автора: </span>'.hc($_GET['author']).'<br><span class="prod-parameter">Об авторе: </span>'.hc($about_author).'<br><span class="prod-parameter">Книги автора: </span>';
 		for($i = 0; $i < $numberOfBooks; $i++) {?>

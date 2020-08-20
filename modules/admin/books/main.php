@@ -19,6 +19,12 @@ if(isset($_GET['book'])) {
 		LIMIT 1
 	");
 
+	if(!mysqli_num_rows($books)) {
+		$_SESSION['info'] = 'Данной книги не существует';
+		header("Location: /admin/books");
+		exit();
+	}
+
 	$res = q("
 		SELECT authors.name
 		FROM authors
@@ -48,6 +54,12 @@ if(isset($_GET['author'])) {
 		LIMIT 1
 	");
 
+	if(!mysqli_num_rows($res)) {
+		$_SESSION['info'] = 'Данной автора не существует';
+		header("Location: /admin/books");
+		exit();
+	}
+
 	$row = $res->fetch_assoc();
 	$about_author = $row['description'];
 	$res->close();
@@ -60,8 +72,8 @@ if(isset($_GET['author'])) {
 		WHERE authors.name = '".es($_GET['author'])."'
 	");
 
-	while($row = $res->fetch_assoc()) {
-		$author_books[] = $row['name'];
+	while($row2 = $res->fetch_assoc()) {
+		$author_books[] = $row2['name'];
 	}
 	$numberOfBooks = count($author_books);
 	$res->close();

@@ -22,6 +22,7 @@ if(isset($_POST['add_cat']) && !empty($_POST['new_cat'])) {
 				INSERT INTO `products_cat` SET 
 				`name` = '".es($_POST['new_cat'])."'
 			");
+
 			$_SESSION['info'] = 'Категория была успешно добавлена';
 		}
 	}
@@ -31,7 +32,6 @@ if(isset($_POST['delete']) && isset($_POST['cat_id'])) {
 	q("
 		DELETE FROM `products_cat`
 		WHERE `id` = ".(int)$_POST['cat_id']."
-		LIMIT 1
 	");
 
 	q("
@@ -39,7 +39,6 @@ if(isset($_POST['delete']) && isset($_POST['cat_id'])) {
 		`category` 	= 'undefined',
 		`cat_id`	= '0'
 		WHERE `cat_id` = ".(int)$_POST['cat_id']."
-		LIMIT 1
 	");
 
 	$_SESSION['info'] = 'Категория удалены';
@@ -69,15 +68,14 @@ if(isset($_POST['rename']) && isset($_POST['id']) && !empty($_POST['new_name']))
 				UPDATE `products_cat` SET
 				`name` 		   = '".es(trimAll($_POST['new_name']))."'
 				WHERE `id` 	   = ".(int)$_POST['id']."
-				LIMIT 1
 			");
 
 			q("
 				UPDATE `products` SET
 				`category` 		   = '".es(trimAll($_POST['new_name']))."'
 				WHERE `cat_id` 	   = ".(int)$_POST['id']."
-				LIMIT 1
 			");
+
 			$_SESSION['info'] = 'Категория успешно переименована';
 			header("Location: /admin/products/catmanager");
 			exit();

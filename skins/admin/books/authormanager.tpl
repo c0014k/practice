@@ -83,41 +83,5 @@ if(isset($_GET['id'])) {
 		$authors->close();
 		?>
 	</div>
-<?php }
-/*
-	while($row = $authors->fetch_assoc()) {?>
-		<div class="container-forms">
-		<div class="authors-edit-name"><?php echo hc($row['name']);?></div>
-			<form action="" method="post" class="form-1">
-				<input type="text" name="new_name">
-				<input type="hidden" name="id" value="<?php echo (int)$row['id'];?>"><br>
-				<br><input type="submit" name="rename" value="Редактировать имя">
-			</form>
-
-			<form action="" method="post" class="form-1">
-				<input type="hidden" name="id" value="<?php echo (int)$row['id'];?>">
-				<textarea name="new_descr" cols="21" rows="2"><?php if(isset($_POST['new_descr'])) {echo hc($_POST['new_descr']);} else {echo hc($row['description']);}?></textarea><br>
-				<input type="submit" name="description" value="Редактировать описание">
-			</form>
-			Выбрать книги автора:<br>
-			<form action="" method="post" class="form-1">
-				<input type="hidden" name="id" value="<?php echo (int)$row['id'];?>">
-				<select multiple size="10" name="books[]">
-					<?php
-					while($row2 = $books->fetch_assoc()) {
-						echo '<option>'.hc($row2['name']).'</option>';
-					}
-					?>
-				</select>
-				<br><input type="submit" name="new_books" value="Редактировать книги">
-			</form>
-
-			<form action="" method="post" class="form-2">
-				<div class="cat-delete"><input type="submit" name="delete" value="Удалить"></div>
-				<input type="checkbox" name="auth_id" value="<?php echo (int)$row['id'];?>" id="qwe" class="cat-delete">
-			</form>
-		</div>
-		<div class="clearfix"></div>
-		<hr>
-<?php }*/?>
+<?php }?>
 </div>

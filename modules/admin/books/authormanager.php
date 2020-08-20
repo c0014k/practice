@@ -36,6 +36,37 @@ if(isset($_POST['add_author']) && !empty($_POST['new_author']) && !empty($_POST[
 	}
 }
 
+if(isset($_POST['new_books']) && isset($_POST['id']) && !empty($_POST['books'])) {
+	for ($k = 0; $k < count($_POST['books']); $k++){
+		$q = q("
+			SELECT `id`
+			FROM `books`
+			WHERE `name` = '".es($_POST['books'][$k])."'
+		");
+		$row = $q->fetch_assoc();
+		$books[] = $row['id'];
+	}
+	$q->close();
+
+	for($k = 0; $k < count($books); $k++){
+		$q = q("
+			INSERT INTO `book2authors` SET
+			`author_id` 	= ".(int)$_POST['id'].",
+			`book_id` 		= ".(int)$books[$k]."
+		");
+	}
+
+	$booksids = implode(',',intAll($books));
+
+	q("
+		DELETE FROM `book2authors`
+		WHERE `book_id`	NOT IN (".$booksids.")	
+			AND `author_id`	= ".(int)$_POST['id']."
+	");
+
+	$_SESSION['info'] = 'Книги автора успешно изменены';
+}
+
 if(isset($_GET['id'])) {
 	if(isset($_POST['delete']) && isset($_POST['auth_id'])) {
 		q("
@@ -119,10 +150,10 @@ if(isset($_GET['id'])) {
 	if(!empty($booksId)) {
 		for($k = 0; $k < count($booksId); $k++) {
 			$q = q("
-			SELECT `name`
-			FROM `books`
-			WHERE `id` = ".(int)$booksId[$k]."
-		");
+				SELECT `name`
+				FROM `books`
+				WHERE `id` = ".(int)$booksId[$k]."
+			");
 			$row = $q->fetch_assoc();
 			$booksByAuthor[$k] = $row['name'];
 		}
@@ -130,12 +161,6 @@ if(isset($_GET['id'])) {
 	} else {
 		$errors['book'] = 'Автору не присвоено ни одной книги из имеющихся';
 	}
-}
-
-if(isset($_POST['new_books']) && isset($_POST['id']) && !empty($_POST['books'])) {
-	wtf($_POST['books']);
-
-	//$res->close();
 }
 
 $authors = q("
@@ -152,23 +177,3 @@ if(isset($_SESSION['info'])) {
 	$info = $_SESSION['info'];
 	unset($_SESSION['info']);
 }
-/*
- 	$res2 = q("
-		SELECT `book_id`
-		FROM `book2authors`
-		WHERE `author_id` = ".(int)$_POST['id']."
-	");
-
-	while($row = $res2->fetch_assoc()) {
-		$res3 = q("
-			SELECT `name`
-			FROM `books`
-			WHERE `id` = ".$row['book_id']."
-		");
-	}
-	while($book = $res3->fetch_assoc()){
-		$book[] = $book['name'];
-	}
-	$res2->close();
-	$res3->close();
- */

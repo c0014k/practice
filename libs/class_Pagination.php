@@ -5,6 +5,11 @@ class Pagination {
 
 	static function howPages($section,$limit,$numPage) {
 		$numPage = (int)$numPage;
+		if($numPage < 1) {
+			header("Location: /$section");
+			exit();
+		}
+
 		$res = q("
 				SELECT COUNT(*) AS `count`
 				FROM `$section`
@@ -37,6 +42,12 @@ class Pagination {
 		static function showPagination($section,$numPage) {
 		$numPage = (int)$numPage;?>
 		<div class="paginator"><?php
+
+			if($numPage < 1 || $numPage > self::$pages) {
+				header("Location: /$section");
+				exit();
+			}
+
 			if(self::$pages <=5) {
 				for($i=1; $i<=self::$pages; $i++) {?>
 					<span class="paginator-page"><a href="/<?php echo $section;?>?num_page=<?php echo $i;?>"><?php echo $i;?></a></span><?php

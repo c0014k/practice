@@ -14,6 +14,11 @@ if(isset($_GET['book'])) {
 		LIMIT 1
 	");
 
+	if(!mysqli_num_rows($books)) {
+		header("Location: /books");
+		exit();
+	}
+
 	$res = q("
 		SELECT authors.name
 		FROM authors
@@ -44,8 +49,12 @@ if(isset($_GET['author'])) {
 		LIMIT 1
 	");
 
+	if(!mysqli_num_rows($res)) {
+		header("Location: /books");
+		exit();
+	}
+
 	$row = $res->fetch_assoc();
-	$about_author = $row['description'];
 	$res->close();
 
 	$res = q("
@@ -56,8 +65,8 @@ if(isset($_GET['author'])) {
 		WHERE authors.name = '".es($_GET['author'])."'
 	");
 
-	while($row = $res->fetch_assoc()) {
-		$author_books[] = $row['name'];
+	while($row2 = $res->fetch_assoc()) {
+		$author_books[] = $row2['name'];
 	}
 	$numberOfBooks = count($author_books);
 	$res->close();

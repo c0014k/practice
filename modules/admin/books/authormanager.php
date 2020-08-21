@@ -52,7 +52,6 @@ if(isset($_POST['new_books']) && isset($_POST['id']) && !empty($_POST['books']))
 		DELETE FROM `book2authors`
 		WHERE `author_id` = ".(int)$_POST['id']."
 	");
-	$q->close();
 
 	for($k = 0; $k < count($books); $k++){
 		$q = q("

@@ -41,7 +41,7 @@ if(isset($_POST['delete']) && isset($_POST['cat_id'])) {
 		WHERE `cat_id` = ".(int)$_POST['cat_id']."
 	");
 
-	$_SESSION['info'] = 'Категория удалены';
+	$_SESSION['info'] = 'Категория удалена';
 	header("Location: /admin/products/catmanager");
 	exit();
 }

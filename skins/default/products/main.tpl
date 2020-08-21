@@ -21,7 +21,7 @@ if (!isset($_GET['cat'])) {
 			}?>
 		</div>
 		<div class="prod-img">
-			<a href="/products?cat=<?php echo hc($row2['name']);?>&id=<?php echo hc($row2['name']);?>"><img src="<?php echo '/uploaded/100x100/'.$row['img']?>"></a>
+			<a href="/products?cat=<?php echo hc($row2['name']);?>&name=<?php echo hc($row['name']);?>"><img src="<?php echo '/uploaded/100x100/'.$row['img']?>"></a>
 		</div>
 		<div class="clearfix"></div>
 		<div class="prod-podrobnee"><a href="/products?cat=<?php echo hc($row2['name']);?>&name=<?php echo hc($row['name']);?>">подробнее...</a></div>

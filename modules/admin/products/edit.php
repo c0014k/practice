@@ -1,6 +1,20 @@
 <?php
 
 if(isset($_GET['id'])) {
+	$checkId = q("
+		SELECT *
+		FROM `products`
+		WHERE `id` = ".(int)$_GET['id']."
+		LIMIT 1
+	");
+
+	if(!mysqli_num_rows($checkId)) {
+		$_SESSION['info'] = 'Данного продукта не существует';
+		header("Location: /admin/products");
+		exit();
+	}
+
+
 	if(isset($_POST['edit'],$_POST['availability'])) {
 		if(!empty($_POST['price'] && $_POST['description'] && $_POST['name'] && $_POST['code'] && $_POST['category'])) {
 
@@ -83,15 +97,17 @@ if(isset($_GET['id'])) {
 		LIMIT 1
 	");
 
-	if(!mysqli_num_rows($products)) {
-		$_SESSION['info'] = 'Данного продукта не существует';
-		header("Location: /admin/products");
-		exit();
-	}
 	$row = $products->fetch_assoc();
+	$products->close();
+
+} else {
+	$_SESSION['info'] = 'Данного товара не существует';
+	header("Location: /admin/products");
+	exit();
 }
 
 $res = q("
 	SELECT *
 	FROM `products_cat`
 ");
+

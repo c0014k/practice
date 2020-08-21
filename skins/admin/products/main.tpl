@@ -1,7 +1,9 @@
 <div class="work-zone">
 <?php
-if(isset($info)) {
-	echo $info;
+if(isset($errors['prod'])) {
+	echo '<span class="errors">'.$errors['prod'].'</span>';
+} elseif(isset($info)) {
+	echo '<div class="errors">'.$info.'</div>';
 }
 
 if(!isset($_GET['id'])) {

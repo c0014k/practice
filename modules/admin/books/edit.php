@@ -1,6 +1,7 @@
 <?php
 
 if(isset($_GET['id'])) {
+
 	$checkId = q("
 		SELECT *
 		FROM `books`

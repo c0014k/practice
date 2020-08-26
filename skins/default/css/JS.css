@@ -19,3 +19,11 @@
 .close {
 	margin: -30px 0 0 466px;
 }
+.JS-login {
+	display: inline-block;
+	margin: 50px 0 0 50px;
+	font-size: 17px;
+	font-family: "Quicksand", sans-serif;
+	color: #3B566E;
+	cursor:pointer;
+}

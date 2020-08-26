@@ -94,9 +94,13 @@
 			<?php
 			if (!isset($_SESSION['user'])) {
 			?>
-			<div class="login">
-				<span class="sp-login" onclick="hideShow('modalAuth');"></span>
-				<!--<a href="/cab/auth" class="sp-login"></a>-->
+			<!--<div class="login">
+				<a href="/cab/auth" class="sp-login"></a>
+			</div>-->
+
+			<div class="JS-login">
+				<span onclick="hideShow('modalAuth');">LOGIN</span> |
+				<span onclick="hideShow('modalAuth');">SIGNUP</span>
 			</div>
 			<?php } ?>
 		</div>

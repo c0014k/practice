@@ -16,6 +16,36 @@
 </head>
 <body>
 <header>
+	<div class="modalWindow" id="modalAuth">
+		<div class="form">
+			<div class="close" onclick="hideShow('modalAuth');"><b>X</b></div>
+			<form action="/cab/registration" method="post">
+				<h2>Регистрация</h2>
+				После регистрации вы не сможете изменить логин.
+				<table>
+					<tr>
+						<td>*login</td>
+						<td><input type="text" name="login"></td>
+					</tr>
+					<tr>
+						<td>*password</td>
+						<td><input type="password" name="pass"></td>
+					</tr>
+					<tr>
+						<td>*e-mail</td>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+						<td>age</td>
+						<td><input type="text" name="age"></td>
+						<td>* - обязательные для заполнения поля</td>
+					</tr>
+				</table>
+				<div><input type="submit" value="Зарегистрироваться"></div>
+			</form>
+			<a href="/cab/auth"><h4>Авторизироваться</h4><a>
+		</div>
+	</div>
 	<!--верхний бар---------------------------------------------------------------------------->
 	<div class="top-bar-background">
 		<div class="clearfix">
@@ -65,7 +95,8 @@
 			if (!isset($_SESSION['user'])) {
 			?>
 			<div class="login">
-				<a href="/cab/auth" class="sp-login"></a>
+				<span class="sp-login" onclick="hideShow('modalAuth');"></span>
+				<!--<a href="/cab/auth" class="sp-login"></a>-->
 			</div>
 			<?php } ?>
 		</div>

@@ -16,9 +16,9 @@
 </head>
 <body>
 <header>
-	<div class="modalWindow" id="modalAuth">
+	<div class="modalWindow" id="modalReg">
 		<div class="form">
-			<div class="close" onclick="hideShow('modalAuth');"><b>X</b></div>
+			<div class="close" onclick="hideShow('modalReg');"><b>X</b></div>
 			<form action="/cab/registration" method="post">
 				<h2>Регистрация</h2>
 				После регистрации вы не сможете изменить логин.
@@ -43,7 +43,27 @@
 				</table>
 				<div><input type="submit" value="Зарегистрироваться"></div>
 			</form>
-			<a href="/cab/auth"><h4>Авторизироваться</h4><a>
+		</div>
+	</div>
+
+	<div class="modalWindow" id="modalAuth">
+		<div class="form">
+		<div class="close" onclick="hideShow('modalAuth');"><b>X</b></div>
+			<h2>Авторизация</h2>
+			<form action="/cab/auth" method="post">
+				<table>
+					<tr>
+						<td>e-mail</td>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+						<td>password</td>
+						<td><input type="password" name="pass"></td>
+						<td><label><input type="checkbox" name="rem"> Запомнить меня на сайте</label><br></td>
+					</tr>
+				</table>
+				<div><input type="submit" value="Войти"></div>
+			</form>
 		</div>
 	</div>
 	<!--верхний бар---------------------------------------------------------------------------->
@@ -99,7 +119,7 @@
 			</div>-->
 
 			<div class="JS-login">
-				<span onclick="hideShow('modalAuth');">LOGIN</span> |
+				<span onclick="hideShow('modalReg');">LOGIN</span> |
 				<span onclick="hideShow('modalAuth');">SIGNUP</span>
 			</div>
 			<?php } ?>

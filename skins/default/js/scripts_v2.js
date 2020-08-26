@@ -1,5 +1,9 @@
 "use strict";
 
+function Hide(x) {
+	document.getElementById(x).style.display = 'none';
+}
+
 function hideShow(x) {
 	let y = document.getElementById(x);
 	if(y.style.display === 'block') {

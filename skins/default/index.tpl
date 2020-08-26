@@ -10,6 +10,9 @@
 	<link href="/skins/default/css/calc.css" rel="stylesheet" type="text/css">
 	<link href="/skins/default/css/reviews.css" rel="stylesheet" type="text/css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/skins/default/css/JS.css" rel="stylesheet">
+	<script src = "/skins/default/js/scripts_v2.js"></script>
 </head>
 <body>
 <header>

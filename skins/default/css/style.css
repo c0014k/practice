@@ -503,7 +503,7 @@
 }
 
 .NewYork {
-	position:relative;
+	/*position:relative;*/
 	width:792px;
 	height:493px;
 	float: left;
@@ -534,7 +534,7 @@
 }
 
 .Sydney {
-	position:relative;
+	/*position:relative;*/
 	width:555px;
 	height:294px;
 	float: left;
@@ -565,7 +565,7 @@
 }
 
 .Australia {
-	position:relative;
+	/*position:relative;*/
 	width: 257px;
 	height: 171px;
 	float: left;
@@ -596,7 +596,7 @@
 }
 
 .Paris {
-	position: relative;
+	/*position: relative;*/
 	width: 257px;
 	height: 171px;
 	float: left;
@@ -651,7 +651,7 @@
 }
 
 .container-agent {
-	position:relative;
+	/*position:relative;*/
 	background-color: #f3f3f3;
 	width: 320px;
 	float: left;

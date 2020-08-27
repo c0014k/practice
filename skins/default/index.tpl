@@ -119,8 +119,8 @@
 			</div>-->
 
 			<div class="JS-login">
-				<span onclick="hideShow('modalReg');">LOGIN</span> |
-				<span onclick="hideShow('modalAuth');">SIGNUP</span>
+				<span onclick="hideShow('modalAuth');">LOGIN</span> |
+				<span onclick="hideShow('modalReg');">SIGNUP</span>
 			</div>
 			<?php } ?>
 		</div>

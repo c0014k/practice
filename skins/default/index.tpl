@@ -19,21 +19,23 @@
 	<div class="modalWindow" id="modalReg">
 		<div class="form">
 			<div class="close" onclick="hideShow('modalReg');"><b>X</b></div>
-			<form action="/cab/registration" method="post">
+			<form action="/cab/registration" method="post" onsubmit="return check('login','error');">
 				<h2>Регистрация</h2>
 				После регистрации вы не сможете изменить логин.
 				<table>
 					<tr>
 						<td>*login</td>
-						<td><input type="text" name="login"></td>
+						<td><input type="text" name="login" id="login"></td>
+						<td><div class="error" id="error">Логин должен быть от 2 до 14 символов</div></td>
 					</tr>
 					<tr>
 						<td>*password</td>
-						<td><input type="password" name="pass"></td>
+						<td><input type="password" name="pass" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"></td>
+						<td>пароль должен содержать более 6 символов - обязательно цирфы, строчные и заглавные буквы латиницей</td>
 					</tr>
 					<tr>
 						<td>*e-mail</td>
-						<td><input type="text" name="email"></td>
+						<td><input type="email" name="email" required></td>
 					</tr>
 					<tr>
 						<td>age</td>
@@ -54,11 +56,11 @@
 				<table>
 					<tr>
 						<td>e-mail</td>
-						<td><input type="text" name="email"></td>
+						<td><input type="email" name="email" required></td>
 					</tr>
 					<tr>
 						<td>password</td>
-						<td><input type="password" name="pass"></td>
+						<td><input type="password" name="pass" required></td>
 						<td><label><input type="checkbox" name="rem"> Запомнить меня на сайте</label><br></td>
 					</tr>
 				</table>

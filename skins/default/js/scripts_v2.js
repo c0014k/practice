@@ -24,10 +24,11 @@ function areYouSure(x){
 	return confirm('Вы уверены?');
 }
 
-function check(x){
-	let l = document.getElementById(x).value.length
+function check(x,y){
+	let l = document.getElementById(x).value.length;
+	let m = document.getElementById(y);
 	if(l < 2 || y >= 14) {
-		alert('!!!!AAAAA!!!!');
+		m.style.display = 'block';
 		return false;
 	} else {
 		return true;

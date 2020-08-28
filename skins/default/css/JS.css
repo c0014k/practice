@@ -26,3 +26,8 @@
 	color: #3B566E;
 	cursor:pointer;
 }
+
+.error {
+	display:none;
+	color:red;
+}

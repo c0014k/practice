@@ -12,7 +12,7 @@
 </tr>
 <tr>
 	<td>Электронная почта</td>
-	<td><input type="text" name="email" value="<?php if(isset($_POST['email'])) {echo hc($_POST['email']);} else {echo hc($row['email']);}?>"><?php if (isset($errors['email'])){echo '<span class="errors">'.$errors['email'].'</span>';} ?><td>
+	<td><input type="text" name="email" value="<?php if(isset($_POST['email'])) {echo hc($_POST['email']);} else {echo hc($row['email']);}?>"><?php if (isset($errors['email'])){echo '<span class="errors">'.$errors['email'].'</span>';}?><td>
 </tr>
 <tr>
 	<td>Пол</td>

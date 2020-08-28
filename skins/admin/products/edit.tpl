@@ -1,5 +1,12 @@
 <div class="work-zone">
 <div class="form-delimiter">
+<?php
+if(isset($errors['prod'])) {
+	echo '<span class="errors">'.$errors['prod'].'</span>';
+} elseif(isset($info)) {
+	echo '<div class="errors">'.$info.'</div>';
+}
+?>
 <form action="" method="post">
 <table class="table-admin">
 
@@ -8,8 +15,8 @@
 	<td><select name="category">
 	<option selected><?php if(isset($_POST['category'])) {echo hc($_POST['category']);} else {echo hc($row['category']);}?></option>
 	<?php
-	while($row2 = $res->fetch_assoc()){
-		echo '<option>'.$row2['name'].'</option>';
+	while($row2 = $res->fetch_assoc()) {
+		echo '<option>'.hc($row2['name']).'</option>';
 	}
 	$res->close();?>
 	</select>
@@ -17,7 +24,7 @@
 </tr>
 <tr>
 	<td>Код товара</td>
-	<td><input size="26" type="text" name="code" value="<?php if(isset($_POST['code'])) {echo hc($_POST['code']);} else {echo hc($row['code']);}?>"><td>
+	<td><input size="26" type="text" name="code" value="<?php if(isset($_POST['code'])) {echo (int)$_POST['code'];} else {echo (int)$row['code'];}?>"><td>
 </tr>
 <tr>
 	<td>Наличие товара</td>
@@ -50,18 +57,21 @@
 </tr>
 <tr>
 	<td>Цена</td>
-	<td><input size="26" type="text" name="price" value="<?php if(isset($_POST['price'])) {echo hc($_POST['price']);} else {echo hc($row['price']);}?>"></td>
+	<td><input size="26" type="text" name="price" value="<?php if(isset($_POST['price'])) {echo (float)$_POST['price'];} else {echo (float)$row['price'];}?>"></td>
 </tr>
 </table>
 <input type="submit" name="edit" value="Внести изменения">
 </form>
 </div>
+
 <div class="form-delimiter-2">
-<img src="<?php echo '/uploaded/300x400/'.$row['img']?>"><br>
-<?php if (isset($errors['photo'])){echo '<span class="errors">'.$errors['photo'].'</span>';}?>
+	<img src="<?php echo '/uploaded/300x400/'.hc($row['img']);?>"><br>
+	<?php if(isset($errors['photo'])){echo '<span class="errors">'.$errors['photo'].'</span>';}?>
+
 <form action="" method="post" enctype="multipart/form-data">
 	<input type="file" name="file" accept="image/jpeg,image/png,image/gif">
 	<input type="submit" name="editimg" value="Изменить изображение">
 </form>
+
 </div>
 </div>

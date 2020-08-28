@@ -10,9 +10,62 @@
 	<link href="/skins/default/css/calc.css" rel="stylesheet" type="text/css">
 	<link href="/skins/default/css/reviews.css" rel="stylesheet" type="text/css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/skins/default/css/JS.css" rel="stylesheet">
+	<script src = "/skins/default/js/scripts_v2.js"></script>
 </head>
 <body>
 <header>
+	<div class="modalWindow" id="modalReg">
+		<div class="form">
+			<div class="close" onclick="hideShow('modalReg');"><b>X</b></div>
+			<form action="/cab/registration" method="post">
+				<h2>Регистрация</h2>
+				После регистрации вы не сможете изменить логин.
+				<table>
+					<tr>
+						<td>*login</td>
+						<td><input type="text" name="login"></td>
+					</tr>
+					<tr>
+						<td>*password</td>
+						<td><input type="password" name="pass"></td>
+					</tr>
+					<tr>
+						<td>*e-mail</td>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+						<td>age</td>
+						<td><input type="text" name="age"></td>
+						<td>* - обязательные для заполнения поля</td>
+					</tr>
+				</table>
+				<div><input type="submit" value="Зарегистрироваться"></div>
+			</form>
+		</div>
+	</div>
+
+	<div class="modalWindow" id="modalAuth">
+		<div class="form">
+		<div class="close" onclick="hideShow('modalAuth');"><b>X</b></div>
+			<h2>Авторизация</h2>
+			<form action="/cab/auth" method="post">
+				<table>
+					<tr>
+						<td>e-mail</td>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+						<td>password</td>
+						<td><input type="password" name="pass"></td>
+						<td><label><input type="checkbox" name="rem"> Запомнить меня на сайте</label><br></td>
+					</tr>
+				</table>
+				<div><input type="submit" value="Войти"></div>
+			</form>
+		</div>
+	</div>
 	<!--верхний бар---------------------------------------------------------------------------->
 	<div class="top-bar-background">
 		<div class="clearfix">
@@ -61,8 +114,13 @@
 			<?php
 			if (!isset($_SESSION['user'])) {
 			?>
-			<div class="login">
+			<!--<div class="login">
 				<a href="/cab/auth" class="sp-login"></a>
+			</div>-->
+
+			<div class="JS-login">
+				<span onclick="hideShow('modalAuth');">LOGIN</span> |
+				<span onclick="hideShow('modalReg');">SIGNUP</span>
 			</div>
 			<?php } ?>
 		</div>

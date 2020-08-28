@@ -31,12 +31,13 @@
 	background-color: #f3f3f3;
 	position: absolute;
 	text-align: left;
-	padding: 5px 15px 30px 15px;
+	padding: 5px 15px 15px 15px;
 	margin: 5px 0 0 0;
 	width: 100px;
 }
 .link {
-	padding-top:30px;
+	padding-top: 10px;
+	line-height: 1.5;
 }
 .pointer {
 	cursor:pointer;
@@ -74,9 +75,6 @@
 	padding: 40px 0 20px 0;
 	display:flow-root;
 }
-.form {
-	display:flow-root;
-}
 .footer-admin {
 	margin-top: 80px;
 	padding-top: 30px;
@@ -107,7 +105,6 @@
 	font-weight: 700;
 }
 .prod-podrobnee {
-	margin: 0 0 0 165px;
 	font-size:21px;
 }
 .prod-podrobnee a {
@@ -116,6 +113,29 @@
 .prod-edit {
 	margin: 15px 80px 15px 0;
 	display:inline-block;
+}
+.cat-delete {
+	float:right;
+	font-size:21px;
+	margin-right:20px;
+}
+#qwe {
+	transform:scale(2.3);
+	opacity:0.9;
+	cursor:pointer;
+	margin-top:10px;
+}
+.prod-cat {
+	float:left;
+	font-size:21px;
+	width:45%;
+}
+.form-1 {
+	float:left;
+	margin-right:20px;
+}
+.form-2 {
+	float:right;
 }
 .doc-head {
 	font-size: 24px;
@@ -133,27 +153,55 @@
 .back-to-all-users a {
 	text-decoration:none;
 }
+.back-to-all {
+	margin-top:30px;
+}
+.container-forms{
+	margin: 20px 10px 60px 10px;
+}
 .form-delimiter {
-	display:inline-block;
-	width:65%;
+	float:left;
+	margin-right:50px;
 }
 .form-delimiter-2 {
-	float:left;
-	margin: 40px 60px 0 0;
+	float: left;
 }
 .prod-info {
 	float: left;
 	font-size: 21px;
 	width: 45%;
+	word-wrap:break-word;
 }
 .prod-img {
 	display: inline-block;
 	width: 55%;
 	text-align: center;
-	height:120px;
 }
 .errors {
-	color:#ff0000;
+	color: #ff0000;
 	font-size: 21px;
 	font-family:"Quicksand", sans-serif;
+}
+
+.button-add {
+	margin: 20px 0 0 0;
+}
+.clearfix:after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+.authors-edit {
+	margin-left:124px;
+}
+.authors-edit-name {
+	float: left;
+	font-size: 21px;
+	margin-right: 20px;
+}
+.choose_author{
+	margin-left:60px;
+	font-size: 24px;
+	font-weight: 700;
+	float:left;
 }

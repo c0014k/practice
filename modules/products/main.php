@@ -7,30 +7,40 @@ if(isset($_GET['num_page'])) {
 }
 $start = Pagination::$start;
 
-if(isset($_GET['cat']) && !isset($_GET['id'])) {
+if(isset($_GET['cat']) && !isset($_GET['name'])) {
 	$products = q("
 		SELECT *
 		FROM `products`
-		WHERE `cat_id` = ".(int)$_GET['cat']."
+		WHERE `category` = '".es($_GET['cat'])."'
 		ORDER BY `name` ASC
-	")or exit('ОШИБКА:'.mysqli_error($link));
-} elseif(isset($_GET['id'])) {
+	");
+
+	if(!mysqli_num_rows($products)) {
+		header("Location: /products");
+		exit();
+	}
+} elseif(isset($_GET['name'])) {
 	$products = q("
 		SELECT *
 		FROM `products`
-		WHERE `id` = ".(int)$_GET['id']."
+		WHERE `name` = '".es($_GET['name'])."'
 		LIMIT 1
-	")or exit('ОШИБКА:'.mysqli_error($link));
+	");
+
+	if(!mysqli_num_rows($products)) {
+		header("Location: /products");
+		exit();
+	}
 } else {
 	$products = q("
 		SELECT *
 		FROM `products`
 		ORDER BY `category` ASC
 		LIMIT $start, $limit
-	")or exit('ОШИБКА:'.mysqli_error($link));
+	");
 }
 
 $res = q("
 	SELECT *
 	FROM `products_cat`
-") or exit('ОШИБКА:'.mysqli_error($link));
+");

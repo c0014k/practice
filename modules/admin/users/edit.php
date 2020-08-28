@@ -47,7 +47,7 @@ if(isset($_POST['edit'])) {
 						`active`	= ".(int)$_POST['active'].",
 						`access`	= ".(int)$_POST['access']."
 						WHERE `id`  = ".(int)$_GET['id']."
-					") or exit('ОШИБКА:'.mysqli_error($link));
+					");
 
 					$_SESSION['info'] = 'Запись была изменена';
 					header("Location: /admin/users");
@@ -65,7 +65,7 @@ if(isset($_POST['edit'])) {
 					`active`	= ".(int)$_POST['active'].",
 					`access`	= ".(int)$_POST['access']."
 					WHERE `id`  = ".(int)$_GET['id']."
-				") or exit('ОШИБКА:'.mysqli_error($link));
+				");
 
 				$_SESSION['info'] = 'Запись была изменена';
 				header("Location: /admin/users");
@@ -83,7 +83,7 @@ if(isset($_POST['editavatar'])) {
 			UPDATE `users` SET
 			`img`		= '".$filename."'
 			WHERE `id`	= ".(int)$_GET['id']."
-		") or exit('ОШИБКА:'.mysqli_error($link));
+		");
 
 		$_SESSION['info'] = 'Запись была изменена';
 		header("Location: /admin/users/edit?id=".(int)$_GET['id']."");
@@ -98,7 +98,7 @@ $users = q("
 	FROM `users`
 	WHERE `id` = ".(int)$_GET['id']."
 	LIMIT 1
-") or exit(mysqli_error($link));
+");
 
 if(!mysqli_num_rows($users)) {
 	$_SESSION['info'] = 'Данного пользователя не существует';

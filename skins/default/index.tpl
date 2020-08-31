@@ -13,25 +13,26 @@
 
 	<link href="/skins/default/css/JS.css" rel="stylesheet">
 	<script src = "/skins/default/js/scripts_v2.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <header>
 	<div class="modalWindow" id="modalReg">
 		<div class="form">
 			<div class="close" onclick="hideShow('modalReg');"><b>X</b></div>
-			<form action="/cab/registration" method="post" onsubmit="return check('login','error');">
+			<form action="/cab/registration" method="post" onsubmit="return check('login','errorLogin','pass','errorPass');">
 				<h2>Регистрация</h2>
 				После регистрации вы не сможете изменить логин.
 				<table>
 					<tr>
 						<td>*login</td>
 						<td><input type="text" name="login" id="login"></td>
-						<td><div class="error" id="error">Логин должен быть от 2 до 14 символов</div></td>
+						<td><div class="error" id="errorLogin">Логин должен быть от 2 до 14 символов</div></td>
 					</tr>
 					<tr>
 						<td>*password</td>
-						<td><input type="password" name="pass" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"></td>
-						<td>пароль должен содержать более 6 символов - обязательно цирфы, строчные и заглавные буквы латиницей</td>
+						<td><input type="password" name="pass" id="pass"></td>
+						<td><div class="error" id="errorPass">Пароль должен быть длинее 4 символов</div></td>
 					</tr>
 					<tr>
 						<td>*e-mail</td>

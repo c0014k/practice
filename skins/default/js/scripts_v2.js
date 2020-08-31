@@ -24,13 +24,35 @@ function areYouSure(x){
 	return confirm('Вы уверены?');
 }
 
-function check(x,y){
-	let l = document.getElementById(x).value.length;
-	let m = document.getElementById(y);
-	if(l < 2 || y >= 14) {
-		m.style.display = 'block';
+function check(x,y,a,b){
+	let lengthLogin = document.getElementById(x).value.length;
+	let errorLogin = document.getElementById(y);
+	let lengthPassword = document.getElementById(a).value.length;
+	let errorPassword = document.getElementById(b);
+	if(lengthLogin < 2 || lengthLogin >= 14) {
+		errorLogin.style.display = 'block';
 		return false;
-	} else {
-		return true;
 	}
+	if(lengthPassword < 4) {
+		errorPassword.style.display = 'block';
+		return false;
+	} else
+	return true;
 }
+/*
+function myAjax(x){
+	let login =  x;
+	let pass =  document.getElementById(y);
+	let email =  document.getElementById(z);
+	$.ajax({
+	url: '/test_ajax.php',
+	type: "POST",
+	cache: false,
+	data: {login: login, password: 'pass44', email: 'email@mail.lo'},
+	timeout: 5000,
+		success: function(msg) {
+			alert(msg);
+		}
+	});
+}
+*/

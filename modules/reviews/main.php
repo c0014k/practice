@@ -1,23 +1,36 @@
 <?php
+if(isset($_POST['text'])) {
+	if(mb_strlen($_POST['text']) < 2){
+		$array = array(
+			'status' => 'Комментарий должен быть чуть более развернутым'
+		);
+		echo json_encode($array);
+		exit();
+	} else {
+		$date = date("Y-m-d H:i:s");
+		q("
+			INSERT INTO `reviews` SET
+			`name` 	= '".es($_SESSION['user']['login'])."',
+			`text` 	= '".es($_POST['text'])."',
+			`date`	= '".$date."'
+		");
 
-if(!empty($_POST['text']) && isset($_SESSION['user'])) {
-	q("
-		INSERT INTO `reviews` SET
-		`name` 	= '".es($_SESSION['user']['login'])."',
-		`text` 	= '".es($_POST['text'])."',
-		`date`	= '".date("Y-m-d H:i:s")."'
-	") or exit('ОШИБКА:'.mysqli_error($link));
-	$_SESSION['regok'] = 'Ваш отзыв добавлен!';
-	header("Location:/reviews");
-	exit();
+		$array = array(
+			'name' => es($_SESSION['user']['login']),
+			'text' => es($_POST['text']),
+			'date' => $date,
+			'status' => 'ok'
+		);
+		echo json_encode($array);
+		exit();
+		}
 }
 
-$reviews = q("
-	SELECT * FROM `reviews` 
-	ORDER BY `id` DESC
-") or exit(mysqli_error($link));
+/*
+	$reviews = q("
+		SELECT * FROM `reviews`
+		ORDER BY `id` DESC
+	");
+*/
 
-if(isset($_SESSION['info'])){
-	$info = $_SESSION['info'];
-	unset($_SESSION['info']);
-}
+//echo $response['status'] = 'ok';

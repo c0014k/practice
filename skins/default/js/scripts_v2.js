@@ -20,15 +20,16 @@ function changeAndBlue(x) {
 	}
 }
 
-function areYouSure(x){
+function areYouSure() {
 	return confirm('Вы уверены?');
 }
 
-function check(x,y,a,b){
+function check(x, y, a, b) {
 	let lengthLogin = document.getElementById(x).value.length;
 	let errorLogin = document.getElementById(y);
 	let lengthPassword = document.getElementById(a).value.length;
 	let errorPassword = document.getElementById(b);
+
 	if(lengthLogin < 2 || lengthLogin >= 14) {
 		errorLogin.style.display = 'block';
 		return false;
@@ -36,23 +37,32 @@ function check(x,y,a,b){
 	if(lengthPassword < 4) {
 		errorPassword.style.display = 'block';
 		return false;
-	} else
-	return true;
+	} else {
+		return true;
+	}
 }
-/*
-function myAjax(x){
-	let login =  x;
-	let pass =  document.getElementById(y);
-	let email =  document.getElementById(z);
+
+function myAjax(inputText, output) {
+	let text = document.getElementById(inputText).value;
 	$.ajax({
-	url: '/test_ajax.php',
-	type: "POST",
-	cache: false,
-	data: {login: login, password: 'pass44', email: 'email@mail.lo'},
-	timeout: 5000,
+		url: 'http://praktika.ua/reviews',
+		type: "POST",
+		cache: false,
+		data: {text: text},
 		success: function(msg) {
-			alert(msg);
+			document.getElementById('myform').reset();
+			let response = JSON.parse(msg);
+			if(response.status !== 'ok') {
+				document.getElementById('errorJS').innerHTML = response.status;
+			} else {
+				document.getElementById('errorJS').innerHTML = '';
+				document.getElementById(output).innerHTML += response.date+'<br>' +response.name+':'+'<br><b>'+response.text+'</b><br><hr>';
+			}
 		}
 	});
+	return false
 }
-*/
+
+/*
+AKms<b>kn klsnv</b>lk sv<s>kewklnsvdfjfnlklkvs vm kN! lk om/knal lfn k1NW IKF<u>N ML1 LKm!!!cnocinicn ifn ow4n onie gngi oeg</s>sdlnelcnsvjsvnvjnvoivndfj nflskv</u><b>ncscncjecpcpcnslcnscmscinscnscscps</b>
+ */

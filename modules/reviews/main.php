@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['text'])) {
+if(isset($_POST['text']) && isset($_SESSION['user']['login'])) {
 	if(mb_strlen($_POST['text']) < 2){
 		$array = array(
 			'status' => 'Комментарий должен быть чуть более развернутым'
@@ -25,7 +25,6 @@ if(isset($_POST['text'])) {
 		exit();
 		}
 }
-
 /*
 	$reviews = q("
 		SELECT * FROM `reviews`

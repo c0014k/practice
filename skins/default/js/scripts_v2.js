@@ -56,7 +56,7 @@ function myAjax(inputText, output) {
 				document.getElementById('errorJS').innerHTML = response.status;
 			} else {
 				document.getElementById('errorJS').innerHTML = '';
-				document.getElementById(output).innerHTML += response.date+'<br>' +response.name+':'+'<br><b>'+response.text+'</b><br><hr>';
+				document.getElementById(output).innerHTML += '<br>' +response.name+','+response.date+'<br><b>'+response.text+'</b><br><hr>';
 			}
 		}
 	});

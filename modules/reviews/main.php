@@ -25,11 +25,7 @@ if(isset($_POST['text']) && isset($_SESSION['user']['login'])) {
 		exit();
 		}
 }
-/*
-	$reviews = q("
-		SELECT * FROM `reviews`
-		ORDER BY `id` DESC
-	");
-*/
-
-//echo $response['status'] = 'ok';
+$reviews = q("
+	SELECT * FROM `reviews`
+	ORDER BY `id` DESC
+");

@@ -5,9 +5,9 @@ if(isset($_GET['id'])) {
 		DELETE FROM `reviews`
 		WHERE `id` = ".(int)$_GET['id']."	
 		LIMIT 1
-	") or exit(mysqli_error($link));
+	");
 
-	$_SESSION['info'] = 'Отзыв успешно удален';
+	$_SESSION['info'] = 'Комментарий успешно удален';
 	header("Location: /reviews");
 	exit();
 }

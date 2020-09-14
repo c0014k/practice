@@ -53,10 +53,10 @@ function myAjax(inputText, output) {
 			document.getElementById('myform').reset();
 			let response = JSON.parse(msg);
 			if(response.status !== 'ok') {
-				document.getElementById('errorJS').innerHTML = response.status;
+				document.getElementById('JSinfo').innerHTML = response.status;
 			} else {
-				document.getElementById('errorJS').innerHTML = '';
-				document.getElementById(output).innerHTML += '<br>' +response.name+','+response.date+'<br><b>'+response.text+'</b><br><hr>';
+				document.getElementById('JSinfo').innerHTML = '';
+				document.getElementById(output).innerHTML += '<br>' +response.name+','+response.date+'<br><b><div class="rev-text">'+response.text+'</div></b><div class="user-review"><input type="submit" value="Ответить" class="user-button"> <input type="submit" value="Пожаловаться" class="user-button"></div><hr>';
 			}
 		}
 	});
@@ -64,5 +64,5 @@ function myAjax(inputText, output) {
 }
 
 /*
-AKms<b>kn klsnv</b>lk sv<s>kewklnsvdfjfnlklkvs vm kN! lk om/knal lfn k1NW IKF<u>N ML1 LKm!!!cnocinicn ifn ow4n onie gngi oeg</s>sdlnelcnsvjsvnvjnvoivndfj nflskv</u><b>ncscncjecpcpcnslcnscmscinscnscscps</b>
+AKmsk<s>kewklnsvdfjfnlklkvs vm kN! lk om/knal lfn k1NW IKF<u>N ML1 LKm!!!cnocinicn ifn ow4n onie gngi oeg</s>sdlnelcnsvjsvnvjnvoivndfj nflskv</u>ncscncjecpcpcnslcnscmscinscnscscpsuehucvsjcnsjvuhfskbuhevjlbnijwivhencwivnosknvjfvnjfoiwjceuovhvojpmpcnsuhw8jc04yg78uf742ghq0cijouwhv98uf0hwugh9h
  */

@@ -1,12 +1,12 @@
 <div class="work-zone-reviews">
 <?php
 if(isset($_SESSION['info'])) {
-	echo '<div id="errorJS" class="errorJS">'.$_SESSION['info'].'</div>';
+	echo '<div id="JSinfo" class="JSinfo">'.$_SESSION['info'].'</div>';
 	unset ($_SESSION['info']);
 }
 
 if(isset($_SESSION['user']['login'])) {?>
-	<div id="errorJS" class="errorJS"></div>
+	<div id="JSinfo" class="JSinfo"></div>
 
 	<form id="myform" class="rev-form" onsubmit="return myAjax('text','OutputDiv');">
 		<table>
@@ -18,7 +18,7 @@ if(isset($_SESSION['user']['login'])) {?>
 	</form>
 <?php
 	} else {
-		echo '<div id="errorJS" class="errorJS">Авторизируйтесь, чтобы оставить комментарий</div>';
+		echo '<div id="JSinfo" class="JSinfo">Авторизируйтесь, чтобы оставить комментарий</div>';
 	}
 ?>
 
@@ -53,5 +53,4 @@ if(isset($_SESSION['user']['login'])) {?>
 	}
 	?>
 </div>
-
 </div>

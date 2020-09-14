@@ -16,8 +16,8 @@ if(isset($_POST['text']) && isset($_SESSION['user']['login'])) {
 		");
 
 		$array = array(
-			'name' => es($_SESSION['user']['login']),
-			'text' => es($_POST['text']),
+			'name' => hc($_SESSION['user']['login']),
+			'text' => hc($_POST['text']),
 			'date' => $date,
 			'status' => 'ok'
 		);
@@ -29,3 +29,13 @@ $reviews = q("
 	SELECT * FROM `reviews`
 	ORDER BY `id` DESC
 ");
+
+/*
+$reviews = q("
+	SELECT * FROM `reviews`
+	WHERE `date` > '".es($_SESSION['date'])."'
+	ORDER BY `id` DESC
+");
+
+$_SESSION['date'] = date("Y-m-d H:i:s");
+ */

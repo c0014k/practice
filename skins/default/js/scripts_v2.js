@@ -42,27 +42,46 @@ function check(x, y, a, b) {
 	}
 }
 
-function myAjax(inputText, output) {
+function clearinfo() {
+	document.getElementById('JSinfo').innerHTML = '';
+}
+
+function AjaxInputReview(inputText) {
 	let text = document.getElementById(inputText).value;
 	$.ajax({
 		url: 'http://praktika.ua/reviews',
 		type: "POST",
 		cache: false,
+		timeout: 5000,
 		data: {text: text},
 		success: function(msg) {
 			document.getElementById('myform').reset();
 			let response = JSON.parse(msg);
-			if(response.status !== 'ok') {
+			if(response.status !== 'Комментарий успешно добавлен') {
 				document.getElementById('JSinfo').innerHTML = response.status;
 			} else {
-				document.getElementById('JSinfo').innerHTML = '';
-				document.getElementById(output).innerHTML += '<br>' +response.name+','+response.date+'<br><b><div class="rev-text">'+response.text+'</div></b><div class="user-review"><input type="submit" value="Ответить" class="user-button"> <input type="submit" value="Пожаловаться" class="user-button"></div><hr>';
+				document.getElementById('JSinfo').innerHTML = response.status;
 			}
 		}
 	});
+	setTimeout(clearinfo,2000);
 	return false
 }
 
+function AjaxOutputReview() {
+	$.ajax({
+		url: 'http://praktika.ua/reviews',
+		type: "POST",
+		cache: false,
+		data: {test:'test'},
+		success: function(msg) {
+			let response = JSON.parse(msg);
+			document.getElementById('OutputDiv').innerHTML += '<br>' +response.name+','+response.date+'<br><b><div class="rev-text">'+response.text+'</div></b><div class="user-review"><input type="submit" value="Ответить" class="user-button"> <input type="submit" value="Пожаловаться" class="user-button"></div><hr>';
+		}
+	});
+}
+
 /*
+
 AKmsk<s>kewklnsvdfjfnlklkvs vm kN! lk om/knal lfn k1NW IKF<u>N ML1 LKm!!!cnocinicn ifn ow4n onie gngi oeg</s>sdlnelcnsvjsvnvjnvoivndfj nflskv</u>ncscncjecpcpcnslcnscmscinscnscscpsuehucvsjcnsjvuhfskbuhevjlbnijwivhencwivnosknvjfvnjfoiwjceuovhvojpmpcnsuhw8jc04yg78uf742ghq0cijouwhv98uf0hwugh9h
  */

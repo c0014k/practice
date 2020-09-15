@@ -8,7 +8,7 @@ if(isset($_SESSION['info'])) {
 if(isset($_SESSION['user']['login'])) {?>
 	<div id="JSinfo" class="JSinfo"></div>
 
-	<form id="myform" class="rev-form" onsubmit="return myAjax('text','OutputDiv');">
+	<form id="myform" class="rev-form" onsubmit="return AjaxInputReview('text');">
 		<table>
 			<tr>
 				<td><textarea name="text" rows="10" cols="125" id="text"></textarea></td>
@@ -23,6 +23,7 @@ if(isset($_SESSION['user']['login'])) {?>
 ?>
 
 <div class="reviews">
+	<!--<script>setInterval(AjaxOutputReview,1000)</script>-->
 	<div id="OutputDiv"></div>
 	<?php
 	if (mysqli_num_rows($reviews)) {

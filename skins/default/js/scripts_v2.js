@@ -76,7 +76,7 @@ function AjaxOutputReview() {
 		data: {test:'test'},
 		success: function(msg) {
 			let response = JSON.parse(msg);
-			if (response != null) {
+			if (response.status == 'ok') {
 			document.getElementById('OutputDiv').innerHTML += '<br>' +response.name+','+response.date+'<br><b><div class="rev-text">'+response.text+'</div></b><div class="user-review"><input type="submit" value="Ответить" class="user-button"> <input type="submit" value="Пожаловаться" class="user-button"></div><hr>';
 			}
 		}
@@ -84,6 +84,5 @@ function AjaxOutputReview() {
 }
 
 /*
-
 AKmsk<s>kewklnsvdfjfnlklkvs vm kN! lk om/knal lfn k1NW IKF<u>N ML1 LKm!!!cnocinicn ifn ow4n onie gngi oeg</s>sdlnelcnsvjsvnvjnvoivndfj nflskv</u>ncscncjecpcpcnslcnscmscinscnscscpsuehucvsjcnsjvuhfskbuhevjlbnijwivhencwivnosknvjfvnjfoiwjceuovhvojpmpcnsuhw8jc04yg78uf742ghq0cijouwhv98uf0hwugh9h
  */

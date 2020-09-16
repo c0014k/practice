@@ -24,9 +24,9 @@ if(isset($_SESSION['user']['login'])) {?>
 		echo '<div id="JSinfo" class="JSinfo">Авторизируйтесь, чтобы оставить комментарий</div>';
 	}
 ?>
-	<div onclick="AjaxOutputReview()">AjaxOutputReview TEST</div>
+	<!--<div onclick="AjaxOutputReview()">AjaxOutputReview TEST</div>-->
 <div class="reviews">
-	<!--<script>setInterval(AjaxOutputReview,2000)</script>-->
+	<script>setInterval(AjaxOutputReview,2000)</script>
 	<div id="OutputDiv"></div>
 	<?php
 	if (mysqli_num_rows($reviews)) {

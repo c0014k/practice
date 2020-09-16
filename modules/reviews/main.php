@@ -25,12 +25,11 @@ if(isset($_POST['text']) && isset($_SESSION['user']['login'])) {
 if(isset($_POST['test'])) {
 	$reviews = q("
 		SELECT * FROM `reviews`
-		WHERE `date` < '".es($_SESSION['date'])."'
+		WHERE `date` > '".es($_SESSION['date'])."'
 		ORDER BY `id` DESC
 	");
 	$_SESSION['date'] = date("Y-m-d H:i:s");
 	$row = mysqli_fetch_assoc($reviews);
-
 	echo json_encode($row);
 	exit();
 }

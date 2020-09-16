@@ -76,7 +76,9 @@ function AjaxOutputReview() {
 		data: {test:'test'},
 		success: function(msg) {
 			let response = JSON.parse(msg);
+			if (response != null) {
 			document.getElementById('OutputDiv').innerHTML += '<br>' +response.name+','+response.date+'<br><b><div class="rev-text">'+response.text+'</div></b><div class="user-review"><input type="submit" value="Ответить" class="user-button"> <input type="submit" value="Пожаловаться" class="user-button"></div><hr>';
+			}
 		}
 	});
 }

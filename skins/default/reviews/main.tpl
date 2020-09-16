@@ -5,6 +5,9 @@ if(isset($_SESSION['info'])) {
 	unset ($_SESSION['info']);
 }
 
+$_SESSION['date'] = date("Y-m-d H:i:s");
+echo $_SESSION['date'];
+
 if(isset($_SESSION['user']['login'])) {?>
 	<div id="JSinfo" class="JSinfo"></div>
 
@@ -21,9 +24,9 @@ if(isset($_SESSION['user']['login'])) {?>
 		echo '<div id="JSinfo" class="JSinfo">Авторизируйтесь, чтобы оставить комментарий</div>';
 	}
 ?>
-
+	<div onclick="AjaxOutputReview()">AjaxOutputReview TEST</div>
 <div class="reviews">
-	<!--<script>setInterval(AjaxOutputReview,1000)</script>-->
+	<!--<script>setInterval(AjaxOutputReview,2000)</script>-->
 	<div id="OutputDiv"></div>
 	<?php
 	if (mysqli_num_rows($reviews)) {

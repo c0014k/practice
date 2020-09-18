@@ -22,10 +22,11 @@
 	padding: 35px 35px;
 	margin-top: 20px;
 	margin-left: 20px;
-	display:block;
+	display: block;
 }
 .close {
-	margin: -30px 0 0 466px;
+	margin: -20px 0 0 445px;
+	cursor: pointer;
 }
 .JS-login {
 	display: inline-block;
@@ -33,7 +34,7 @@
 	font-size: 17px;
 	font-family: "Quicksand", sans-serif;
 	color: #3B566E;
-	cursor:pointer;
+	cursor: pointer;
 }
 .error {
 	display:none;

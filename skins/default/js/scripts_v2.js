@@ -76,13 +76,29 @@ function AjaxOutputReview() {
 		data: {test:'test'},
 		success: function(msg) {
 			let response = JSON.parse(msg);
-			if (response.status == 'ok') {
+			if (response.status === 'ok') {
 			document.getElementById('OutputDiv').innerHTML += '<br>' +response.name+','+response.date+'<br><b><div class="rev-text">'+response.text+'</div></b><div class="user-review"><input type="submit" value="Ответить" class="user-button"> <input type="submit" value="Пожаловаться" class="user-button"></div><hr>';
 			}
 		}
 	});
 }
 
-/*
-AKmsk<s>kewklnsvdfjfnlklkvs vm kN! lk om/knal lfn k1NW IKF<u>N ML1 LKm!!!cnocinicn ifn ow4n onie gngi oeg</s>sdlnelcnsvjsvnvjnvoivndfj nflskv</u>ncscncjecpcpcnslcnscmscinscnscscpsuehucvsjcnsjvuhfskbuhevjlbnijwivhencwivnosknvjfvnjfoiwjceuovhvojpmpcnsuhw8jc04yg78uf742ghq0cijouwhv98uf0hwugh9h
- */
+function AjaxCheckAuth(x, y) {
+	let email = document.getElementById(x).value;
+	let password = document.getElementById(y).value;
+	$.ajax({
+		url: 'http://praktika.ua/cab/auth',
+		type: "POST",
+		cache: false,
+		data: {email:email,pass:password},
+		success: function(msg) {
+			let response = JSON.parse(msg);
+			if(response.status === 'error'){
+				document.getElementById('errorAuth').innerHTML = response.error;
+			} else {
+				location="/index.php";
+			}
+		}
+	});
+return false;
+}

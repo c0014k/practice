@@ -8,6 +8,10 @@
 	<link href="/skins/default/css/normalize.css" rel="stylesheet">
 	<link href="/skins/admin/css/admin.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/skins/default/css/JS.css" rel="stylesheet">
+	<script src = "/skins/default/js/scripts_v2.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<header class="work-zone-admin">

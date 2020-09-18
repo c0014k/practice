@@ -48,10 +48,6 @@ if(isset($_POST['test'])) {
 		exit();
 	}
 }
-
-	/*
-
-	*/
 $reviews = q("
 	SELECT * FROM `reviews`
 	ORDER BY `id` ASC 

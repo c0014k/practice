@@ -19,7 +19,7 @@
 <header>
 	<div class="modalWindow" id="modalReg">
 		<div class="form">
-			<div class="close" onclick="hideShow('modalReg');"><b>X</b></div>
+			<div class="close" onclick="hideShow('modalReg');"><img src="/skins/default/img/close-window.png"></div>
 			<form action="/cab/registration" method="post" onsubmit="return check('login','errorLogin','pass','errorPass');">
 				<h2>Регистрация</h2>
 				После регистрации вы не сможете изменить логин.
@@ -36,7 +36,7 @@
 					</tr>
 					<tr>
 						<td>*e-mail</td>
-						<td><input type="email" name="email" required></td>
+						<td><input type="text" name="email" required></td>
 					</tr>
 					<tr>
 						<td>age</td>
@@ -51,17 +51,18 @@
 
 	<div class="modalWindow" id="modalAuth">
 		<div class="form">
-		<div class="close" onclick="hideShow('modalAuth');"><b>X</b></div>
+		<div class="close" onclick="hideShow('modalAuth');"><img src="/skins/default/img/close-window.png"></div>
 			<h2>Авторизация</h2>
-			<form action="/cab/auth" method="post">
+			<form method="post" onsubmit="return AjaxCheckAuth('email','password');">
+				<div class="JSinfo" id="errorAuth"></div>
 				<table>
 					<tr>
 						<td>e-mail</td>
-						<td><input type="email" name="email" required></td>
+						<td><input type="text" name="email" id="email"></td>
 					</tr>
 					<tr>
 						<td>password</td>
-						<td><input type="password" name="pass" required></td>
+						<td><input type="password" name="pass" id="password"></td>
 						<td><label><input type="checkbox" name="rem"> Запомнить меня на сайте</label><br></td>
 					</tr>
 				</table>

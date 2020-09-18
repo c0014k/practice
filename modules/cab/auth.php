@@ -4,7 +4,7 @@ if (isset($_SESSION['user'])){
 	exit();
 }
 
-if(isset($_POST['pass'],$_POST['email'])) {
+if(isset($_POST['email'],$_POST['pass'])) {
 	if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 		if(!empty ($_POST['pass'])) {
 			$res = q("
@@ -30,15 +30,35 @@ if(isset($_POST['pass'],$_POST['email'])) {
 						WHERE `id`	= ".$_SESSION['user']['id']."
 					");
 				}
-			header("Location: /index.php");
-			exit();
+				$array = array(
+					'status' => 'ok'
+				);
+				echo json_encode($array);
+				exit();
+			//header("Location: /index.php");
+			//exit();
 		} else {
-			$error = 'ДАННЫЙ ПОЛЬЗОВАТЕЛЬ НЕ ЗАРЕГИСТРИРОВАН';
+			 $array = array(
+			 	'status' => 'error',
+				'error' => 'ДАННЫЙ ПОЛЬЗОВАТЕЛЬ НЕ ЗАРЕГИСТРИРОВАН'
+			);
+			echo json_encode($array);
+			exit();
 		}
 	} else {
-		$error = 'ПАРОЛЬ НЕ УКАЗАН';
+	 	$array = array(
+			'status' => 'error',
+			'error' => 'ПАРОЛЬ НЕ УКАЗАН'
+		);
+		echo json_encode($array);
+		exit();
 	}
 } else {
-	$error = 'ЭЛЕКТРОННЫЙ ЯЩИК ВВЕДЕН НЕВЕРНО';
-}
+	$array = array(
+		'status' => 'error',
+		'error' => 'ЭЛЕКТРОННЫЙ ЯЩИК ВВЕДЕН НЕВЕРНО'
+	);
+	echo json_encode($array);
+	exit();
+	}
 }

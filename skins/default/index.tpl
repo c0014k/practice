@@ -20,27 +20,26 @@
 	<div class="modalWindow" id="modalReg">
 		<div class="form">
 			<div class="close" onclick="hideShow('modalReg');"><img src="/skins/default/img/close-window.png"></div>
-			<form action="/cab/registration" method="post" onsubmit="return check('login','errorLogin','pass','errorPass');">
+			<form method="post" onsubmit="return AjaxCheckRegistration('login','regpassword','regemail','age');">
 				<h2>Регистрация</h2>
+				<div class="JSinfo" id="errorReg"></div>
 				После регистрации вы не сможете изменить логин.
 				<table>
 					<tr>
 						<td>*login</td>
 						<td><input type="text" name="login" id="login"></td>
-						<td><div class="error" id="errorLogin">Логин должен быть от 2 до 14 символов</div></td>
 					</tr>
 					<tr>
 						<td>*password</td>
-						<td><input type="password" name="pass" id="pass"></td>
-						<td><div class="error" id="errorPass">Пароль должен быть длинее 4 символов</div></td>
+						<td><input type="password" name="pass" id="regpassword"></td>
 					</tr>
 					<tr>
 						<td>*e-mail</td>
-						<td><input type="text" name="email" required></td>
+						<td><input type="text" name="email" id="regemail"></td>
 					</tr>
 					<tr>
 						<td>age</td>
-						<td><input type="text" name="age"></td>
+						<td><input type="text" name="age" id="age"></td>
 						<td>* - обязательные для заполнения поля</td>
 					</tr>
 				</table>
@@ -53,16 +52,16 @@
 		<div class="form">
 		<div class="close" onclick="hideShow('modalAuth');"><img src="/skins/default/img/close-window.png"></div>
 			<h2>Авторизация</h2>
-			<form method="post" onsubmit="return AjaxCheckAuth('email','password');">
+			<form method="post" onsubmit="return AjaxCheckAuth('authemail','authpassword');">
 				<div class="JSinfo" id="errorAuth"></div>
 				<table>
 					<tr>
 						<td>e-mail</td>
-						<td><input type="text" name="email" id="email"></td>
+						<td><input type="text" name="email" id="authemail"></td>
 					</tr>
 					<tr>
 						<td>password</td>
-						<td><input type="password" name="pass" id="password"></td>
+						<td><input type="password" name="pass" id="authpassword"></td>
 						<td><label><input type="checkbox" name="rem"> Запомнить меня на сайте</label><br></td>
 					</tr>
 				</table>

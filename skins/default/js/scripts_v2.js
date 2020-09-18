@@ -102,3 +102,25 @@ function AjaxCheckAuth(x, y) {
 	});
 return false;
 }
+
+function AjaxCheckRegistration(a, b, c, d) {
+	let login = document.getElementById(a).value;
+	let password = document.getElementById(b).value;
+	let email = document.getElementById(c).value;
+	let age = document.getElementById(d).value;
+	$.ajax({
+		url: 'http://praktika.ua/cab/registration',
+		type: "POST",
+		cache: false,
+		data: {login:login, email:email, pass:password, age:age},
+		success: function(msg) {
+			let response = JSON.parse(msg);
+			if(response.status === 'error'){
+				document.getElementById('errorReg').innerHTML = response.error;
+			} else {
+				location="http://praktika.ua/cab/registration";
+			}
+		}
+	});
+	return false;
+}

@@ -35,8 +35,6 @@ if(isset($_POST['email'],$_POST['pass'])) {
 				);
 				echo json_encode($array);
 				exit();
-			//header("Location: /index.php");
-			//exit();
 		} else {
 			 $array = array(
 			 	'status' => 'error',

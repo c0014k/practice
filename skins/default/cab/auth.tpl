@@ -1,4 +1,8 @@
 <div class="work-zone">
+<?php
+	header("Location: /index.php");
+	exit();
+	/*
 	<h2>Авторизироваться</h2>
 	<form action="/cab/auth" method="post">
 		<table>
@@ -16,4 +20,6 @@
 		<?php echo $error ?? '';?>
 	</form>
 	<a href="/cab/registration"><h4>Зарегистрироваться</h4><a>
+	*/
+?>
 </div>

@@ -13,7 +13,8 @@
 
 	<link href="/skins/default/css/JS.css" rel="stylesheet">
 	<script src = "/skins/default/js/scripts_v2.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src = "/libs/jquery-3.5.1.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 </head>
 <body>
 <header>

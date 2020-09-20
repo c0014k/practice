@@ -24,24 +24,6 @@ function areYouSure() {
 	return confirm('Вы уверены?');
 }
 
-function check(x, y, a, b) {
-	let lengthLogin = document.getElementById(x).value.length;
-	let errorLogin = document.getElementById(y);
-	let lengthPassword = document.getElementById(a).value.length;
-	let errorPassword = document.getElementById(b);
-
-	if(lengthLogin < 2 || lengthLogin >= 14) {
-		errorLogin.style.display = 'block';
-		return false;
-	}
-	if(lengthPassword < 4) {
-		errorPassword.style.display = 'block';
-		return false;
-	} else {
-		return true;
-	}
-}
-
 function clearinfo() {
 	document.getElementById('JSinfo').innerHTML = '';
 }

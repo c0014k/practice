@@ -52,3 +52,12 @@ $reviews = q("
 	SELECT * FROM `reviews`
 	ORDER BY `id` ASC 
 ");
+/*
+$latest_reviews = q("
+	SELECT *
+	FROM `review`
+	WHERE `date` > NOW() - INTERVAL 1 MINUTE
+");
+WHERE `date` >= NOW() - INTERVAL 2 MINUTE AND `date` <= NOW() - INTERVAL 1 MINUTE
+WHERE `date` BETWEEN NOW() - INTERVAL 2 MINUTE AND NOW() - INTERVAL 1 MINUTE
+*/

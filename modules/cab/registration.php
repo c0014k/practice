@@ -5,24 +5,50 @@ if (isset($_SESSION['user'])){
 	exit();
 }
 
+$array = array();
 if (isset($_POST['login'],$_POST['pass'],$_POST['email'])){
-	$errors = array();
 	if(empty($_POST['login'])){
-		$errors['login'] = 'Вы не заполнили логин';
+		$array = array(
+			'status' => 'error',
+			'error' => 'ВЫ НЕ ЗАПОЛНИЛИ ЛОГИН'
+		);
+		echo json_encode($array);
+		exit();
+
 	} elseif(mb_strlen($_POST['login']) < 2){
-		$errors['login'] = 'Логин слишком короткий';
+		$array = array(
+			'status' => 'error',
+			'error' => 'ЛОГИН СЛИШКОМ КОРОТКИЙ'
+		);
+		echo json_encode($array);
+		exit();
+
 	} elseif(mb_strlen($_POST['login']) > 16) {
-		$errors['login'] = 'Логин слишком длинный';
+		$array = array(
+			'status' => 'error',
+			'error' => 'ЛОГИН СЛИШКОМ ДЛИННЫЙ'
+		);
+		echo json_encode($array);
+		exit();
 	}
 
 	if(mb_strlen($_POST['pass']) < 5){
-		$errors['pass'] = 'Пароль должен быть длиннее 4 символов';
+		$array = array(
+			'status' => 'error',
+			'error' => 'ПАРОЛЬ ДОЛЖЕН БЫТЬ ДЛИННЕЕ 4 СИМВОЛОВ'
+		);
+		echo json_encode($array);
+		exit();
 	}
 	if(empty($_POST['email']) || !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-		$errors['email'] = 'Введите корректный email';
+		$array = array(
+			'status' => 'error',
+			'error' => 'ВВЕДИТЕ КОРРЕКТНЫЙ EMAIL'
+		);
+		echo json_encode($array);
+		exit();
 	}
-
-	if(!count($errors)) {
+	if(!count($array)) {
 		$res = q("
 			SELECT `id`
 			FROM `users`
@@ -30,8 +56,14 @@ if (isset($_POST['login'],$_POST['pass'],$_POST['email'])){
 			LIMIT 1
 		");
 		if(mysqli_num_rows($res)) {
-			$errors['login'] = 'Такой логин уже занят';
+			$array = array(
+				'status' => 'error',
+				'error' => 'ДАННЫЙ ЛОГИН УЖЕ ЗАРЕГИСТРИРОВАН'
+			);
+			echo json_encode($array);
+			exit();
 		}
+
 		$res = q("
 			SELECT `id`
 			FROM `users`
@@ -39,11 +71,15 @@ if (isset($_POST['login'],$_POST['pass'],$_POST['email'])){
 			LIMIT 1
 		");
 		if(mysqli_num_rows($res)) {
-			$errors['email'] = 'Данный email уже зарегистрирован';
+			$array = array(
+				'status' => 'error',
+				'error' => 'ДАННЫЙ EMAIL УЖЕ ЗАРЕГИСТРИРОВАН'
+			);
+			echo json_encode($array);
+			exit();
 		}
 	}
-
-	if(!count($errors)){
+	if(!count($array)) {
 		q("
 			INSERT INTO `users` SET
 			`login`	= '".es($_POST['login'])."',
@@ -52,13 +88,17 @@ if (isset($_POST['login'],$_POST['pass'],$_POST['email'])){
 			`age`	= ".(int)$_POST['age'].",
 			`hash`	= '".es(myHash($_POST['login'].$_POST['email']))."'
 		");
-		$id = mysqli_insert_id($link);
+
 		$_SESSION['regok'] = 'Мы отправили на ваш email ссылку для подтверждения регистрации. Пройдите по ней.';
+		$id=DB::_()->insert_id;
 		Mail::$to = $_POST['email'];
 		Mail:: $subject = 'Вы зарегистрировались на сайте';
 		Mail::$text = 'Пройдите по ссылке для активации вашего аккаунта:'.Core::$DOMAIN.'index.php?module=cab&page=activate&id='.$id.'&hash='.myHash($_POST['login'].$_POST['email']).'';
 		Mail::send();
-		header("Location:/cab/registration");
+		$array = array(
+			'status' => 'ok'
+		);
+		echo json_encode($array);
 		exit();
 	}
 }

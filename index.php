@@ -22,4 +22,9 @@ ob_start();
 	$content = ob_get_contents();
 ob_end_clean();
 
+if(isset($_GET['ajax'])) {
+	echo $content;
+	exit;
+}
+
 include './skins/'.Core::$SKIN.'/index.tpl';

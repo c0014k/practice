@@ -3,7 +3,10 @@
 if (isset($_SESSION['regok'])){
 	echo '<h1>'.$_SESSION['regok'].'</h1>';
 	unset($_SESSION['regok']);
-} else { ?>
+} else {
+	header("Location: /index.php");
+	exit();
+/*
 <form action="/cab/registration" method="post">
 	<h2>Регистрация</h2>
 	После регистрации вы не сможете изменить логин.
@@ -32,5 +35,7 @@ if (isset($_SESSION['regok'])){
 	<div><input type="submit" value="Зарегистрироваться"></div>
 </form>
 	<a href="/cab/auth"><h4>Авторизироваться</h4><a>
-<?php } ?>
+
+<?php */
+} ?>
 </div>

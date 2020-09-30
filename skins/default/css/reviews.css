@@ -9,7 +9,7 @@
 .reviews {
 	background:aliceblue;
 	margin:auto;
-	width:85%;
+	width:100%;
 	padding:20px 20px 20px 20px;
 	font-size:18px;
 	font-style:italic;
@@ -31,7 +31,7 @@
 }
 .adm-review {
 	display: inline-block;
-	margin: 10px 10px 0 380px;
+	margin: 10px 10px 0 530px;
 }
 .adm-review input {
 	color: #ff0000;

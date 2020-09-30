@@ -4,7 +4,7 @@ if(isset($_POST['text']) && isset($_GET['id'])) {
 		UPDATE `reviews` SET
 		`text` 		= '".es(trimAll($_POST['text']))."'
 		WHERE `id` 	= ".(int)$_GET['id']."
-	") or exit('ОШИБКА:'.mysqli_error($link));
+	");
 
 	$_SESSION['info'] = 'Запись была изменена';
 	header("Location: /reviews");
@@ -15,9 +15,10 @@ $reviews = q("
 	FROM `reviews`
 	WHERE `id` = ".(int)$_GET['id']."
 	LIMIT 1
-") or exit(mysqli_error($link));
+");
+
 if(!mysqli_num_rows($reviews)) {
-	$_SESSION['info'] = 'Данный отзыв отсутствует';
+	$_SESSION['info'] = 'Данный комментарий отсутствует';
 	header("Location: /reviews");
 	exit();
 }

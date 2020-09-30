@@ -53,6 +53,3 @@ if(isset($_SESSION['user']['login'])) {?>
 		<div id="OutputDiv"></div>
 </div>
 </div>
-while($latest_reviews = $res->fetch_assoc()) {
-	echo 'ОТЗЫВЫ:';
-}

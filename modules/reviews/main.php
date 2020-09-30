@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['text']) && isset($_SESSION['user']['login'])) {
 	if(mb_strlen($_POST['text']) < 2){
 		$array = array(
